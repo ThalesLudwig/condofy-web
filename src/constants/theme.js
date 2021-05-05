@@ -22,4 +22,14 @@ const THEME = {
   DARK,
 };
 
+export const THEME_ENUM = {
+  DARK: 0,
+  LIGHT: 1,
+};
+
+export const THEME_INDEX = {
+  0: DARK,
+  1: LIGHT,
+};
+
 export default THEME;

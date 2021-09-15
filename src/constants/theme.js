@@ -4,8 +4,9 @@ const LIGHT = {
   TEXT_LIGHT: "#A5A7A7",
   BACKGROUND: "#FFFFFF",
   CARD: "#F8F9F8",
-  CARD_ACCENT: "#f7f7f7",
+  CARD_ACCENT: "#e3e3e3",
   ONLINE_GREEN: "#09E32C",
+  LIKE_RED: "#fc6d6d",
 };
 
 // TO_DO Dark

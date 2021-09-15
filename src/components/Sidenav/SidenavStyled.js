@@ -29,6 +29,10 @@ export const Logo = styled.img.attrs({ src: logo })`
   align-self: center;
   margin-bottom: 30px;
 
+  @media (max-height: 700px) {
+    display: none;
+  }
+
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     display: none;
   }
@@ -37,7 +41,7 @@ export const Logo = styled.img.attrs({ src: logo })`
 export const LogoMobile = styled.img.attrs({ src: logoMobile })`
   display: none;
 
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) and (min-height: 700px) {
     width: 45px;
     display: flex;
     align-self: center;
@@ -53,7 +57,8 @@ export const TopContainer = styled.div`
   flex-direction: column;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: 75px;
+    width: 55px;
+    border-radius: 15px;
   }
 `;
 
@@ -113,8 +118,8 @@ export const BottomAction = styled.div`
   }
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: 75px;
-    height: 75px;
+    width: 55px;
+    height: 55px;
     justify-content: center;
     align-items: center;
     margin-top: 15px;
@@ -132,8 +137,8 @@ export const Avatar = styled.div`
   border-radius: 10px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: 75px;
-    height: 75px;
+    width: 55px;
+    height: 55px;
   }
 `;
 
@@ -194,5 +199,11 @@ export const Link = styled(NavLink).attrs(({ theme }) => ({
 
   &:hover {
     color: ${({ theme }) => theme.TEXT};
+  }
+
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+    margin-left: 0px;
+    justify-content: center;
+    width: 100%;
   }
 `;

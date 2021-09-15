@@ -11,13 +11,20 @@ export const PostsLane = styled.div`
   display: flex;
   flex-direction: column;
   width: 480px;
+  overflow-y: auto;
+  height: calc(100vh - 50px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (max-width: ${SCREEN.SIZES.TABLET}) {
     width: calc(100vw - 380px);
   }
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: calc(100vw - 130px);
+    width: calc(100vw - 100px);
   }
 `;
 

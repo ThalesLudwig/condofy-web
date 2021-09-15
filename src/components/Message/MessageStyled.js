@@ -13,7 +13,7 @@ export const Container = styled.div`
   -webkit-transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.CARD_ACCENT};
+    background-color: ${({ theme }) => theme.CARD};
   }
 `;
 

@@ -1,17 +1,34 @@
 import React from "react";
 import localization from "./localization";
 import Message from "../../components/Message";
+import Post from "../../components/Post";
 import { FeedWrapper, Title, Posts, PostsLane, MessagesLane, Messages, MessageWrapper } from "./FeedStyled";
 import { useIntl } from "react-intl";
+import mockPosts from "./mock.js";
 
 const Feed = () => {
   const { formatMessage } = useIntl();
+
+  const renderPosts = () => {
+    return mockPosts.map((p) => (
+      <Post
+        key={p.id}
+        name={p.name}
+        username={p.username}
+        residence={p.residence}
+        date={p.date}
+        likes={p.likes}
+        comments={p.comments}>
+        {p.content}
+      </Post>
+    ));
+  };
 
   return (
     <FeedWrapper>
       <PostsLane>
         <Title>{formatMessage(localization.feed)}</Title>
-        <Posts>test</Posts>
+        <Posts>{renderPosts()}</Posts>
       </PostsLane>
       <MessagesLane>
         <MessageWrapper>

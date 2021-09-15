@@ -26,8 +26,8 @@ const setFontColor = ({ theme, disabled, light, color }) => {
   }
 };
 
-export const IconWrapper = styled.span`
-  font-family: "Material Icons";
+export const IconWrapper = styled.i`
+  font-family: "Material Icons Outlined";
   font-weight: normal;
   font-style: normal;
   font-size: ${setFontSize};

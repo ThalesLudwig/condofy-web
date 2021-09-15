@@ -4,7 +4,8 @@ const LIGHT = {
   TEXT_LIGHT: "#A5A7A7",
   BACKGROUND: "#FFFFFF",
   CARD: "#F8F9F8",
-  CARD_ACCENT: "#E6E8E6",
+  CARD_ACCENT: "#f7f7f7",
+  ONLINE_GREEN: "#09E32C",
 };
 
 // TO_DO Dark
@@ -15,6 +16,7 @@ const DARK = {
   BACKGROUND: "#000000",
   CARD: "#F8F9F8",
   CARD_ACCENT: "#E6E8E6",
+  ONLINE_GREEN: "#09E32C",
 };
 
 const THEME = {

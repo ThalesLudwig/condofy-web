@@ -21,6 +21,7 @@ const SidenavWrapper = styled.div`
 
 const ContentWrapper = styled.div`
   width: 780px;
+  margin-top: 7px;
 `;
 
 const Router = () => (

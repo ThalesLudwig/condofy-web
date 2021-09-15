@@ -1,8 +1,12 @@
 import { defineMessages } from "react-intl";
 
 export default defineMessages({
-  send: {
-    id: "foo.bar",
-    defaultMessage: "test",
+  feed: {
+    id: "app.menu.feed",
+    defaultMessage: "Feed",
+  },
+  messages: {
+    id: "app.menu.messages",
+    defaultMessage: "Messages",
   },
 });

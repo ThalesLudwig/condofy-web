@@ -12,9 +12,11 @@ export const SidenavWrapper = styled.div`
   justify-content: space-between;
   height: calc(100vh - 40px);
   width: 256px;
+  padding: 20px 0px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     width: max-content;
+    padding-left: 10px;
   }
 `;
 

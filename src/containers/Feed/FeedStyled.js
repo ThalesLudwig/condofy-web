@@ -8,6 +8,7 @@ export const FeedWrapper = styled.div`
 `;
 
 export const PostsLane = styled.div`
+  padding: 20px 0px;
   display: flex;
   flex-direction: column;
   width: 480px;
@@ -33,6 +34,7 @@ export const MessagesLane = styled.div`
   flex-direction: column;
   width: 280px;
   margin-left: 70px;
+  padding: 20px 0px;
 
   @media (max-width: ${SCREEN.SIZES.TABLET}) {
     display: none;

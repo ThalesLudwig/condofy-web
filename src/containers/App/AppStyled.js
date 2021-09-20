@@ -12,5 +12,5 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding: 20px;
+  /* padding: 20px; */
 `;

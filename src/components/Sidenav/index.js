@@ -80,11 +80,11 @@ const Sidenav = ({ theme }) => {
       </LogoWrapper>
       <BottomContainer>
         <BottomActionWrapper>
-          <BottomAction>
+          <BottomAction to="/settings">
             <Icon color={theme.ACCENT}>settings</Icon>
             <BottomActionText>{formatMessage(localization.settings)}</BottomActionText>
           </BottomAction>
-          <BottomAction>
+          <BottomAction to="/notifications">
             <Icon color={theme.ACCENT}>notifications</Icon>
             <BottomActionText>{formatMessage(localization.notifications)}</BottomActionText>
           </BottomAction>

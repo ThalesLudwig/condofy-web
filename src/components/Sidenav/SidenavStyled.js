@@ -100,7 +100,7 @@ export const BottomActionText = styled.div`
   }
 `;
 
-export const BottomAction = styled.div`
+export const BottomAction = styled(NavLink)`
   background-color: ${({ theme }) => theme.CARD};
   color: ${({ theme }) => theme.TEXT_LIGHT};
   padding: 10px;
@@ -114,6 +114,7 @@ export const BottomAction = styled.div`
   height: 90px;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
+  text-decoration: none;
 
   &:hover {
     color: ${({ theme }) => theme.ACCENT};

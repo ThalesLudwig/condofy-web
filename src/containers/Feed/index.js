@@ -2,9 +2,11 @@ import React from "react";
 import localization from "./localization";
 import Message from "../../components/Message";
 import Post from "../../components/Post";
-import { FeedWrapper, Title, Posts, PostsLane, MessagesLane, Messages, MessageWrapper } from "./FeedStyled";
-import { useIntl } from "react-intl";
+import PostInput from "../../components/PostInput";
 import mockPosts from "./mock.js";
+import avatarMock from "../../assets/avatarmock.jpg";
+import { useIntl } from "react-intl";
+import { FeedWrapper, Title, Posts, PostsLane, MessagesLane, Messages, MessageWrapper } from "./FeedStyled";
 
 const Feed = () => {
   const { formatMessage } = useIntl();
@@ -28,7 +30,10 @@ const Feed = () => {
     <FeedWrapper>
       <PostsLane>
         <Title>{formatMessage(localization.feed)}</Title>
-        <Posts>{renderPosts()}</Posts>
+        <Posts>
+          <PostInput name="Thales Ludwig" username="@thalesludwig" residence="1303B" avatarUrl={avatarMock} />
+          {renderPosts()}
+        </Posts>
       </PostsLane>
       <MessagesLane>
         <MessageWrapper>

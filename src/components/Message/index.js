@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Avatar, Name, Info, InfoWrapper, Online, NameWrapper } from "./MessageStyled";
+import getNameInitials from "../../helpers/getNameInitials";
+import { Container, Avatar, Name, Info, InfoWrapper, Online, NameWrapper, AvatarDefault } from "./MessageStyled";
 
 const Message = ({ imageUrl, name, username, residence, isOnline }) => {
   return (
     <Container>
-      <Avatar imageUrl={imageUrl} />
+      {!!imageUrl ? <Avatar avatarUrl={imageUrl} /> : <AvatarDefault>{getNameInitials(name)}</AvatarDefault>}
       <InfoWrapper>
         <NameWrapper>
           <Name>{name}</Name>

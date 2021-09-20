@@ -36,10 +36,23 @@ export const Avatar = styled.div`
   min-width: 48px;
   height: 48px;
   border-radius: 10px;
-  background-image: ${({ avatarUrl }) => `url("${avatarUrl ? avatarUrl : defaultAvatar}")`};
+  background-image: ${({ avatarUrl }) => `url("${avatarUrl}")`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+export const AvatarDefault = styled.div`
+  min-width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.ACCENT};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.BACKGROUND};
+  font-weight: ${TYPOGRAPHY.WEIGHT.STRONG};
 `;
 
 export const InfoWrapper = styled.div`

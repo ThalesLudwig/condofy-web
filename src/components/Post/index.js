@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon";
+import getNameInitials from "../../helpers/getNameInitials";
 import { withTheme } from "styled-components";
 import {
   Container,
@@ -14,6 +15,7 @@ import {
   DateTime,
   InteractionsRow,
   Interaction,
+  AvatarDefault,
 } from "./PostStyled";
 
 const Post = ({ avatarUrl, name, username, residence, date, likes, comments, children, theme }) => {
@@ -22,7 +24,7 @@ const Post = ({ avatarUrl, name, username, residence, date, likes, comments, chi
   return (
     <Container>
       <Header>
-        <Avatar avatarUrl={avatarUrl} />
+        {!!avatarUrl ? <Avatar avatarUrl={avatarUrl} /> : <AvatarDefault>{getNameInitials(name)}</AvatarDefault>}
         <InfoWrapper>
           <NameWrapper>
             <Name>{name}</Name>

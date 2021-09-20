@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle, Container, RouterWrapper } from "./AppStyled";
+import { GlobalStyle, Container } from "./AppStyled";
 import Router from "../../config/Router";
 import { THEME_INDEX } from "../../constants/theme";
 

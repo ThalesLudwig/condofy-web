@@ -8,6 +8,7 @@ import Residents from "../containers/Residents";
 import Reservations from "../containers/Reservations";
 import Authorizations from "../containers/Authorizations";
 import Deliveries from "../containers/Deliveries";
+import Settings from "../containers/Settings";
 import Sidenav from "../components/Sidenav";
 import SCREEN from "../constants/screen";
 
@@ -38,6 +39,7 @@ const Router = () => (
         <Route exact path="/authorizations" component={Authorizations} />
         <Route exact path="/deliveries" component={Deliveries} />
         <Route exact path="/reservations" component={Reservations} />
+        <Route exact path="/settings" component={Settings} />
         <Route path="*">
           <div>404</div>
         </Route>

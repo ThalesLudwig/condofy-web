@@ -3,6 +3,8 @@ import TYPOGRAPHY from "../../constants/typography";
 import SCREEN from "../../constants/screen";
 import logo from "../../assets/logo.svg";
 import logoMobile from "../../assets/logo_small.svg";
+import logoDark from "../../assets/logo_dark.svg";
+import logoDarkMobile from "../../assets/logo_dark_small.svg";
 import avatarMock from "../../assets/avatarmock.jpg";
 import { NavLink } from "react-router-dom";
 
@@ -25,7 +27,7 @@ export const LogoWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Logo = styled.img.attrs({ src: logo })`
+export const Logo = styled.img.attrs(({ activeTheme }) => ({ src: !!activeTheme ? logo : logoDark }))`
   width: 146px;
   display: flex;
   align-self: center;
@@ -40,7 +42,9 @@ export const Logo = styled.img.attrs({ src: logo })`
   }
 `;
 
-export const LogoMobile = styled.img.attrs({ src: logoMobile })`
+export const LogoMobile = styled.img.attrs(({ activeTheme }) => ({
+  src: !!activeTheme ? logoMobile : logoDarkMobile,
+}))`
   display: none;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) and (min-height: 700px) {

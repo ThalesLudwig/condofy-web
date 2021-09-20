@@ -44,6 +44,7 @@ export const MessagesLane = styled.div`
 export const Title = styled.div`
   font-size: ${TYPOGRAPHY.SIZES.TITLE};
   font-weight: ${TYPOGRAPHY.WEIGHT.STRONG};
+  color: ${({ theme }) => theme.TEXT};
   margin-bottom: 38px;
 `;
 

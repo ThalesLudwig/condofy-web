@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from "../Icon";
 import localization from "./localization";
+import { connect } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { withTheme } from "styled-components";
 import { useIntl } from "react-intl";
@@ -24,15 +25,15 @@ import {
   LogoWrapper,
 } from "./SidenavStyled";
 
-const Sidenav = ({ theme }) => {
+const Sidenav = ({ theme, activeTheme }) => {
   const { pathname } = useLocation();
   const { formatMessage } = useIntl();
 
   return (
     <SidenavWrapper>
       <LogoWrapper>
-        <Logo />
-        <LogoMobile />
+        <Logo activeTheme={activeTheme} />
+        <LogoMobile activeTheme={activeTheme} />
         <TopContainer>
           <LinkWrapper isActive={"/" === pathname}>
             <Link to="/">
@@ -102,4 +103,8 @@ const Sidenav = ({ theme }) => {
   );
 };
 
-export default withTheme(Sidenav);
+const mapStateToProps = (state) => ({
+  activeTheme: state.theme.value,
+});
+
+export default withTheme(connect(mapStateToProps)(Sidenav));

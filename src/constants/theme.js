@@ -9,15 +9,15 @@ const LIGHT = {
   LIKE_RED: "#fc6d6d",
 };
 
-// TO_DO Dark
 const DARK = {
-  ACCENT: "#4D3C94",
-  TEXT: "#33383C",
-  TEXT_LIGHT: "#C2C3C4",
-  BACKGROUND: "#000000",
-  CARD: "#F8F9F8",
-  CARD_ACCENT: "#E6E8E6",
+  ACCENT: "#8257E6",
+  TEXT: "#ECECEC",
+  TEXT_LIGHT: "#A5A7A7",
+  BACKGROUND: "#161318",
+  CARD: "#222126",
+  CARD_ACCENT: "#161318",
   ONLINE_GREEN: "#09E32C",
+  LIKE_RED: "#fc6d6d",
 };
 
 const THEME = {

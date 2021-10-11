@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Feed from "../containers/Feed";
 import Messages from "../containers/Messages";
@@ -10,23 +9,12 @@ import Authorizations from "../containers/Authorizations";
 import Deliveries from "../containers/Deliveries";
 import Settings from "../containers/Settings";
 import Sidenav from "../components/Sidenav";
-import SCREEN from "../constants/screen";
-
-const SidenavWrapper = styled.div`
-  margin-right: 70px;
-
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    margin-right: 15px;
-  }
-`;
-
-const ContentWrapper = styled.div`
-  width: 780px;
-  margin-top: 7px;
-`;
+import Navbar from "../components/Navbar";
+import { ContentWrapper, SidenavWrapper } from "./RouterStyled";
 
 const Router = () => (
   <BrowserRouter>
+    <Navbar />
     <SidenavWrapper>
       <Sidenav />
     </SidenavWrapper>

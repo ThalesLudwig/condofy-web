@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TYPOGRAPHY from "../../constants/typography";
 import SCREEN from "../../constants/screen";
+import SHADOWS from "../../constants/shadows";
 
 export const Container = styled.div`
   display: flex;
@@ -10,6 +11,8 @@ export const Container = styled.div`
   border-radius: 15px;
   background-color: ${({ theme }) => theme.CARD};
   margin-bottom: 25px;
+  -webkit-box-shadow: ${SHADOWS.BOX.CARD};
+  box-shadow: ${SHADOWS.BOX.CARD};
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     margin-bottom: 15px;
@@ -70,6 +73,7 @@ export const NameWrapper = styled.div`
 export const Name = styled.div`
   font-size: ${TYPOGRAPHY.SIZES.TEXT};
   color: ${({ theme }) => theme.TEXT};
+  font-weight: ${TYPOGRAPHY.WEIGHT.STRONG};
   margin-bottom: 3px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {

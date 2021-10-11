@@ -1,57 +1,21 @@
 import styled from "styled-components";
 import TYPOGRAPHY from "../../constants/typography";
 import SCREEN from "../../constants/screen";
-import logo from "../../assets/logo.svg";
-import logoMobile from "../../assets/logo_small.svg";
-import logoDark from "../../assets/logo_dark.svg";
-import logoDarkMobile from "../../assets/logo_dark_small.svg";
 import avatarMock from "../../assets/avatarmock.jpg";
 import { NavLink } from "react-router-dom";
+import SHADOWS from "../../constants/shadows";
 
 export const SidenavWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 115px);
   width: 256px;
-  padding: 20px 0px;
+  padding: 0px 0px 20px 0px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     width: max-content;
     padding-left: 10px;
-  }
-`;
-
-export const LogoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Logo = styled.img.attrs(({ activeTheme }) => ({ src: !!activeTheme ? logo : logoDark }))`
-  width: 146px;
-  display: flex;
-  align-self: center;
-  margin-bottom: 30px;
-
-  @media (max-height: 700px) {
-    display: none;
-  }
-
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    display: none;
-  }
-`;
-
-export const LogoMobile = styled.img.attrs(({ activeTheme }) => ({
-  src: !!activeTheme ? logoMobile : logoDarkMobile,
-}))`
-  display: none;
-
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) and (min-height: 700px) {
-    width: 45px;
-    display: flex;
-    align-self: center;
-    margin-bottom: 30px;
   }
 `;
 
@@ -61,6 +25,8 @@ export const TopContainer = styled.div`
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  -webkit-box-shadow: ${SHADOWS.BOX.CARD};
+  box-shadow: ${SHADOWS.BOX.CARD};
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     width: 55px;
@@ -80,10 +46,11 @@ export const AvatarContainer = styled.div`
   flex-direction: row;
   border-radius: 15px;
   cursor: pointer;
+  -webkit-box-shadow: ${SHADOWS.BOX.CARD};
+  box-shadow: ${SHADOWS.BOX.CARD};
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: max-content;
-    padding: 0px;
+    display: none;
   }
 `;
 
@@ -119,6 +86,8 @@ export const BottomAction = styled(NavLink)`
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   text-decoration: none;
+  -webkit-box-shadow: ${SHADOWS.BOX.CARD};
+  box-shadow: ${SHADOWS.BOX.CARD};
 
   &:hover {
     color: ${({ theme }) => theme.ACCENT};
@@ -171,12 +140,14 @@ export const Info = styled.div`
   color: ${({ theme }) => theme.TEXT_LIGHT};
 `;
 
-export const LinkWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-  border-left: ${({ theme, isActive }) => (isActive ? `${theme.ACCENT} 6px solid` : `${theme.CARD} 6px solid`)};
+export const Divisor = styled.div`
+  height: 2px;
+  background-color: ${({ theme }) => theme.BACKGROUND};
+  width: 100%;
+
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+    display: none;
+  }
 `;
 
 export const LinkText = styled.div`
@@ -191,26 +162,29 @@ export const Link = styled(NavLink).attrs(({ theme }) => ({
   activeStyle: {
     color: theme.ACCENT,
     fontWeight: 500,
+    borderLeft: `3px solid ${theme.ACCENT}`,
   },
   exact: true,
 }))`
   color: ${({ theme }) => theme.TEXT_LIGHT};
   text-decoration: none;
   padding: 13px 0px;
-  margin-left: 20px;
+  padding-left: 20px;
   font-size: ${TYPOGRAPHY.SIZES.TEXT};
   align-items: center;
   display: flex;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
+  border-left: 3px solid ${({ theme }) => theme.CARD};
 
   &:hover {
     color: ${({ theme }) => theme.TEXT};
+    background-color: ${({ theme }) => theme.BACKGROUND};
   }
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    margin-left: 0px;
     justify-content: center;
-    width: 100%;
+    padding-left: 0px;
+    border-left: none;
   }
 `;

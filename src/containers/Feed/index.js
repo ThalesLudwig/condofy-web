@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useIntl } from "react-intl";
 import Message from "../../components/Message";
 import Post from "../../components/Post";
 import PostInput from "../../components/PostInput";
 import mockPosts from "./mock.js";
 import avatarMock from "../../assets/avatarmock.jpg";
-import { FeedWrapper, Posts, PostsLane, MessagesLane, Messages } from "./FeedStyled";
+import Loader from "../../components/Loader";
+import localization from "./localization";
+import { FeedWrapper, Posts, PostsLane, MessagesLane, Messages, NoPosts, NoDataImage, NoPostsText } from "./FeedStyled";
 
 const Feed = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { formatMessage } = useIntl();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  const renderNoData = () => (
+    <NoPosts>
+      <NoDataImage />
+      <NoPostsText>{formatMessage(localization.noPostsLine1)}</NoPostsText>
+      <NoPostsText>{formatMessage(localization.noPostsLine2)}</NoPostsText>
+    </NoPosts>
+  );
+
   const renderPosts = () => {
     return mockPosts.map((p) => (
       <Post
@@ -27,7 +47,9 @@ const Feed = () => {
       <PostsLane>
         <Posts>
           <PostInput name="Thales Ludwig" username="@thalesludwig" residence="1303B" avatarUrl={avatarMock} />
-          {renderPosts()}
+          <Loader isLoading={isLoading} />
+          {!isLoading && renderPosts()}
+          {/* {!isLoading && renderNoData()} */}
         </Posts>
       </PostsLane>
       <MessagesLane>

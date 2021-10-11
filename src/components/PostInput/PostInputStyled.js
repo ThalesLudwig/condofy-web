@@ -13,6 +13,7 @@ export const Container = styled.div`
   margin-bottom: 25px;
   -webkit-box-shadow: ${SHADOWS.BOX.CARD};
   box-shadow: ${SHADOWS.BOX.CARD};
+  width: 100%;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     margin-bottom: 15px;

@@ -2,12 +2,10 @@ import styled from "styled-components";
 import TYPOGRAPHY from "../../constants/typography";
 import SCREEN from "../../constants/screen";
 import logo from "../../assets/logo.svg";
-import logoMobile from "../../assets/logo_small.svg";
 import logoDark from "../../assets/logo_dark.svg";
-import logoDarkMobile from "../../assets/logo_dark_small.svg";
 import SHADOWS from "../../constants/shadows";
 import avatarMock from "../../assets/avatarmock.jpg";
-import { FiSearch, FiBell } from "react-icons/fi";
+import { FiSearch, FiBell, FiAlignJustify } from "react-icons/fi";
 
 export const Container = styled.div`
   position: fixed;
@@ -39,6 +37,7 @@ export const Wrapper = styled.div`
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     width: 100%;
     padding: 0px 20px;
+    justify-content: space-between;
   }
 `;
 
@@ -127,10 +126,12 @@ export const Logo = styled.img.attrs(({ activeTheme }) => ({ src: !!activeTheme 
   } ;
 `;
 
-export const LogoMobile = styled.img.attrs(({ activeTheme }) => ({
-  src: !!activeTheme ? logoMobile : logoDarkMobile,
+export const MenuButton = styled(FiAlignJustify).attrs(({ theme }) => ({
+  color: theme.ACCENT,
+  size: 30,
 }))`
   display: none;
+  cursor: pointer;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     display: flex;

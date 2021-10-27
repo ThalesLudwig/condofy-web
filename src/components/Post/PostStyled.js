@@ -15,7 +15,9 @@ export const Container = styled.div`
   box-shadow: ${SHADOWS.BOX.CARD};
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    margin-bottom: 15px;
+    margin-bottom: 0;
+    border-radius: 0;
+    width: 100vw;
   }
 `;
 

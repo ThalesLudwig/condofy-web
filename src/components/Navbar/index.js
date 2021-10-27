@@ -6,7 +6,7 @@ import {
   Container,
   Wrapper,
   Logo,
-  LogoMobile,
+  MenuButton,
   Search,
   SearchInput,
   SearchIcon,
@@ -16,14 +16,14 @@ import {
   Notifications,
 } from "./NavbarStyled";
 
-const Navbar = ({ activeTheme }) => {
+const Navbar = ({ activeTheme, onOpen }) => {
   const { formatMessage } = useIntl();
 
   return (
     <Container>
       <Wrapper>
         <Logo activeTheme={activeTheme} />
-        <LogoMobile activeTheme={activeTheme} />
+        <MenuButton id="menu-button" onClick={onOpen} />
         <Search>
           <SearchIcon>search</SearchIcon>
           <SearchInput placeholder={formatMessage(localization.search)} />

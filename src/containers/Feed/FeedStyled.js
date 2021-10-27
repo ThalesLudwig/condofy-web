@@ -32,7 +32,9 @@ export const PostsLane = styled.div`
   }
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: calc(100vw - 100px);
+    width: 100vw;
+    padding: 0;
+    height: calc(100vh - 85px);
   }
 `;
 

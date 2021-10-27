@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import localization from "./localization";
 import { useLocation } from "react-router-dom";
 import { withTheme } from "styled-components";
 import { useIntl } from "react-intl";
 import {
-  FiAlignJustify,
+  FiHome,
   FiMessageCircle,
   FiMic,
   FiUsers,
@@ -31,16 +31,26 @@ import {
   LinkText,
   Divisor,
 } from "./SidenavStyled";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
-const Sidenav = ({ theme }) => {
+const Sidenav = ({ theme, isOpen, setIsOpen }) => {
   const { pathname } = useLocation();
   const { formatMessage } = useIntl();
+  const sideNavRef = useRef();
+
+  useClickOutside(
+    sideNavRef,
+    () => {
+      setIsOpen(false);
+    },
+    ["menu-button"],
+  );
 
   return (
-    <SidenavWrapper>
+    <SidenavWrapper isOpen={isOpen} ref={sideNavRef}>
       <TopContainer>
         <Link to="/">
-          <FiAlignJustify size={20} color={"/" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
+          <FiHome size={20} color={"/" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.feed)}</LinkText>
         </Link>
         <Divisor />

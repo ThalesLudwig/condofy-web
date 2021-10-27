@@ -6,7 +6,13 @@ export const SidenavWrapper = styled.div`
   margin-top: 95px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    margin-right: 15px;
+    margin: 0;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    height: calc(100vh - 80px);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   }
 `;
 

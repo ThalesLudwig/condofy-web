@@ -16,7 +16,8 @@ export const Container = styled.div`
   width: 100%;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    margin-bottom: 15px;
+    margin-bottom: 0;
+    border-radius: 0;
   }
 `;
 

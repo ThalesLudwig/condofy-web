@@ -14,8 +14,14 @@ export const SidenavWrapper = styled.div`
   padding: 0px 0px 20px 0px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: max-content;
-    padding-left: 10px;
+    justify-content: flex-start;
+    padding: 0;
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    width: ${({ isOpen }) => (isOpen ? "80vw" : "0")};
+    height: 100%;
+    background-color: ${({ theme }) => theme.CARD};
+    -webkit-box-shadow: ${SHADOWS.BOX.CARD};
+    box-shadow: ${SHADOWS.BOX.CARD};
   }
 `;
 
@@ -29,14 +35,18 @@ export const TopContainer = styled.div`
   box-shadow: ${SHADOWS.BOX.CARD};
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: 55px;
-    border-radius: 15px;
+    border-radius: 0;
   }
 `;
 
 export const BottomContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
+
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+    margin: 0;
+  }
 `;
 
 export const AvatarContainer = styled.div`
@@ -62,12 +72,7 @@ export const BottomActionWrapper = styled.div`
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     flex-direction: column;
-  }
-`;
-
-export const BottomActionText = styled.div`
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    display: none;
+    margin: 0;
   }
 `;
 
@@ -94,11 +99,23 @@ export const BottomAction = styled(NavLink)`
   }
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    width: 55px;
+    width: 100%;
     height: 55px;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-left: 3px solid ${({ theme }) => theme.CARD};
+    padding-left: 20px;
+  }
+`;
+
+export const BottomActionText = styled.div`
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+    padding-left: 20px;
   }
 `;
 
@@ -152,10 +169,6 @@ export const Divisor = styled.div`
 
 export const LinkText = styled.div`
   padding-left: 20px;
-
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    display: none;
-  }
 `;
 
 export const Link = styled(NavLink).attrs(({ theme }) => ({
@@ -180,11 +193,5 @@ export const Link = styled(NavLink).attrs(({ theme }) => ({
   &:hover {
     color: ${({ theme }) => theme.TEXT};
     background-color: ${({ theme }) => theme.BACKGROUND};
-  }
-
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    justify-content: center;
-    padding-left: 0px;
-    border-left: none;
   }
 `;

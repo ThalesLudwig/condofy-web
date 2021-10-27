@@ -6,8 +6,8 @@ import logoMobile from "../../assets/logo_small.svg";
 import logoDark from "../../assets/logo_dark.svg";
 import logoDarkMobile from "../../assets/logo_dark_small.svg";
 import SHADOWS from "../../constants/shadows";
-import Icon from "../Icon";
 import avatarMock from "../../assets/avatarmock.jpg";
+import { FiSearch, FiBell } from "react-icons/fi";
 
 export const Container = styled.div`
   position: fixed;
@@ -137,10 +137,12 @@ export const LogoMobile = styled.img.attrs(({ activeTheme }) => ({
   }
 `;
 
-export const SearchIcon = styled(Icon).attrs(({ theme }) => ({
+export const SearchIcon = styled(FiSearch).attrs(({ theme }) => ({
   color: theme.TEXT_LIGHT,
+  size: 20,
 }))``;
 
-export const BellIcon = styled(Icon).attrs(({ theme }) => ({
+export const BellIcon = styled(FiBell).attrs(({ theme }) => ({
   color: theme.ACCENT,
+  size: 20,
 }))``;

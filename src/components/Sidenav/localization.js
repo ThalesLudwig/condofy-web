@@ -29,6 +29,10 @@ export default defineMessages({
     id: "app.menu.reservations",
     defaultMessage: "Reservations",
   },
+  marketplace: {
+    id: "app.menu.marketplace",
+    defaultMessage: "Marketplace",
+  },
   settings: {
     id: "app.menu.settings",
     defaultMessage: "Settings",

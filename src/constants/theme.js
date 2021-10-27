@@ -5,8 +5,9 @@ const LIGHT = {
   BACKGROUND: "#FAFBFC",
   CARD: "#FFFFFF",
   CARD_ACCENT: "#F4F5F8",
-  ONLINE_GREEN: "#09E32C",
-  LIKE_RED: "#fc6d6d",
+  ONLINE_GREEN: "#A7E9AF",
+  LIKE_RED: "#FF6187",
+  BUTTON: "#132743",
 };
 
 const DARK = {
@@ -16,8 +17,9 @@ const DARK = {
   BACKGROUND: "#222126",
   CARD: "#282629",
   CARD_ACCENT: "#38343c",
-  ONLINE_GREEN: "#09E32C",
-  LIKE_RED: "#fc6d6d",
+  ONLINE_GREEN: "#A7E9AF",
+  LIKE_RED: "#FF6187",
+  BUTTON: "#132743",
 };
 
 const THEME = {

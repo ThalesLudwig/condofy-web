@@ -9,4 +9,5 @@ export const PT_BR = {
   "app.menu.settings": "Ajustes",
   "app.menu.notifications": "Notificações",
   "app.navbar.search": "Pesquisar",
+  "app.menu.marketplace": "Classificados",
 };

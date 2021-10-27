@@ -1,13 +1,23 @@
 import React from "react";
-import Icon from "../Icon";
 import localization from "./localization";
 import { useLocation } from "react-router-dom";
 import { withTheme } from "styled-components";
 import { useIntl } from "react-intl";
 import {
+  FiAlignJustify,
+  FiMessageCircle,
+  FiMic,
+  FiUsers,
+  FiLock,
+  FiShoppingBag,
+  FiCalendar,
+  FiShoppingCart,
+  FiSettings,
+  FiBell,
+} from "react-icons/fi";
+import {
   SidenavWrapper,
   Link,
-  LinkWrapper,
   TopContainer,
   BottomContainer,
   AvatarContainer,
@@ -30,48 +40,52 @@ const Sidenav = ({ theme }) => {
     <SidenavWrapper>
       <TopContainer>
         <Link to="/">
-          <Icon color={"/" === pathname ? theme.ACCENT : theme.TEXT_LIGHT}>menu</Icon>
+          <FiAlignJustify size={20} color={"/" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.feed)}</LinkText>
         </Link>
         <Divisor />
         <Link to="/messages">
-          <Icon color={"/messages" === pathname ? theme.ACCENT : theme.TEXT_LIGHT}>chat</Icon>
+          <FiMessageCircle size={20} color={"/messages" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.messages)}</LinkText>
         </Link>
         <Divisor />
         <Link to="/statements">
-          <Icon color={"/statements" === pathname ? theme.ACCENT : theme.TEXT_LIGHT}>keyboard_voice</Icon>
+          <FiMic size={20} color={"/statements" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.announcements)}</LinkText>
         </Link>
         <Divisor />
         <Link to="/residents">
-          <Icon color={"/residents" === pathname ? theme.ACCENT : theme.TEXT_LIGHT}>people</Icon>
+          <FiUsers size={20} color={"/residents" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.residents)}</LinkText>
         </Link>
         <Divisor />
         <Link to="/authorizations">
-          <Icon color={"/authorizations" === pathname ? theme.ACCENT : theme.TEXT_LIGHT}>lock</Icon>
+          <FiLock size={20} color={"/authorizations" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.authorizations)}</LinkText>
         </Link>
         <Divisor />
         <Link to="/deliveries">
-          <Icon color={"/deliveries" === pathname ? theme.ACCENT : theme.TEXT_LIGHT}>inbox</Icon>
+          <FiShoppingBag size={20} color={"/deliveries" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.deliveries)}</LinkText>
         </Link>
         <Divisor />
         <Link to="/reservations">
-          <Icon color={"/reservations" === pathname ? theme.ACCENT : theme.TEXT_LIGHT}>assignment</Icon>
+          <FiCalendar size={20} color={"/reservations" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.reservations)}</LinkText>
+        </Link>
+        <Link to="/marketplace">
+          <FiShoppingCart size={20} color={"/marketplace" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
+          <LinkText>{formatMessage(localization.marketplace)}</LinkText>
         </Link>
       </TopContainer>
       <BottomContainer>
         <BottomActionWrapper>
           <BottomAction to="/settings">
-            <Icon color={theme.ACCENT}>settings</Icon>
+            <FiSettings size={20} color={theme.ACCENT} />
             <BottomActionText>{formatMessage(localization.settings)}</BottomActionText>
           </BottomAction>
           <BottomAction to="/notifications">
-            <Icon color={theme.ACCENT}>notifications</Icon>
+            <FiBell size={20} color={theme.ACCENT} />
             <BottomActionText>{formatMessage(localization.notifications)}</BottomActionText>
           </BottomAction>
         </BottomActionWrapper>

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon from "../Icon";
 import getNameInitials from "../../helpers/getNameInitials";
 import { withTheme } from "styled-components";
+import { FiHeart, FiMessageSquare } from "react-icons/fi";
 import {
   Container,
   Avatar,
@@ -36,13 +36,11 @@ const Post = ({ avatarUrl, name, username, residence, date, likes, comments, chi
       <Content>{children}</Content>
       <InteractionsRow>
         <Interaction>
-          <Icon color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT_LIGHT}>
-            {hasLikedThisPost ? "favorite" : "favorite_border"}
-          </Icon>
+          <FiHeart size={20} color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT_LIGHT} />
           {likes.length > 0 && <Info>{likes.length}</Info>}
         </Interaction>
         <Interaction>
-          <Icon color={theme.TEXT_LIGHT}>chat_bubble_outline</Icon>
+          <FiMessageSquare color={theme.TEXT_LIGHT} size={20} />
           {comments.length > 0 && <Info>{comments.length}</Info>}
         </Interaction>
       </InteractionsRow>

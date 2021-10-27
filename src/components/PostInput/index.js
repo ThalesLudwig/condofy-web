@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon from "../Icon";
+import { FiImage } from "react-icons/fi";
 import getNameInitials from "../../helpers/getNameInitials";
 import { withTheme } from "styled-components";
 import {
@@ -35,7 +35,7 @@ const PostInput = ({ avatarUrl, name, username, residence, theme }) => {
       <Content placeholder="Diga olá para seus vizinhos!" onKeyDown={expandTextarea} />
       <InteractionsRow>
         <Interaction>
-          <Icon color={theme.TEXT_LIGHT}>image</Icon>
+          <FiImage color={theme.TEXT_LIGHT} size={20} />
         </Interaction>
         <Publish>Publicar</Publish>
       </InteractionsRow>

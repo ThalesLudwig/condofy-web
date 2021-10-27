@@ -9,4 +9,5 @@ export const EN_US = {
   "app.menu.settings": "Settings",
   "app.menu.notifications": "Notifications",
   "app.navbar.search": "Search",
+  "app.menu.marketplace": "Marketplace",
 };

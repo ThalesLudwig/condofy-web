@@ -1,5 +1,5 @@
 const LIGHT = {
-  ACCENT: "#8257E6",
+  ACCENT: "#6239fd",
   TEXT: "#1D3A5F",
   TEXT_LIGHT: "#A4AFBE",
   BACKGROUND: "#FAFBFC",
@@ -11,12 +11,12 @@ const LIGHT = {
 };
 
 const DARK = {
-  ACCENT: "#8257E6",
-  TEXT: "#ECECEC",
-  TEXT_LIGHT: "#A4AFBE",
-  BACKGROUND: "#222126",
-  CARD: "#282629",
-  CARD_ACCENT: "#38343c",
+  ACCENT: "#616fff",
+  TEXT: "#8683ab",
+  TEXT_LIGHT: "#a8a4c4",
+  BACKGROUND: "#28254d",
+  CARD: "#353360",
+  CARD_ACCENT: "#4f4c78",
   ONLINE_GREEN: "#A7E9AF",
   LIKE_RED: "#FF6187",
   BUTTON: "#132743",

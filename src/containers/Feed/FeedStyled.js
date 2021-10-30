@@ -3,6 +3,7 @@ import SCREEN from "../../constants/screen";
 import SHADOWS from "../../constants/shadows";
 import noDataImg from "../../assets/no_data.svg";
 import TYPOGRAPHY from "../../constants/typography";
+import { FEED_WIDTH } from "../../constants/feed";
 
 export const FeedWrapper = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ export const FeedWrapper = styled.div`
 export const PostsLane = styled.div`
   display: flex;
   flex-direction: column;
-  width: 480px;
+  width: ${FEED_WIDTH};
   overflow-y: auto;
   height: calc(100vh - 110px);
   -ms-overflow-style: none;
@@ -41,7 +42,7 @@ export const PostsLane = styled.div`
 export const MessagesLane = styled.div`
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 300px;
   margin-left: 25px;
   padding: 20px 0px;
 

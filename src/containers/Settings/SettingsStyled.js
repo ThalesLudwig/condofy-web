@@ -3,6 +3,8 @@ import TYPOGRAPHY from "../../constants/typography";
 
 export const SettingsWrapper = styled.div`
   padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Title = styled.div`
@@ -12,7 +14,13 @@ export const Title = styled.div`
   margin-bottom: 38px;
 `;
 
-export const DarkThemeLabel = styled.span`
+export const LabelWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+`;
+
+export const Label = styled.span`
   font-size: ${TYPOGRAPHY.SIZES.TEXT};
   color: ${({ theme }) => theme.TEXT};
 `;

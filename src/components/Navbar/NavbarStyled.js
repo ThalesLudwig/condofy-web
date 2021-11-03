@@ -6,6 +6,7 @@ import logoDark from "../../assets/logo_dark.svg";
 import SHADOWS from "../../constants/shadows";
 import avatarMock from "../../assets/avatarmock.jpg";
 import { FiSearch, FiBell, FiAlignJustify } from "react-icons/fi";
+import { Hoverable } from "../Hoverable/Hoverable";
 
 export const Container = styled.div`
   position: fixed;
@@ -55,8 +56,8 @@ export const Options = styled.div`
   }
 `;
 
-export const Notifications = styled.div`
-  cursor: pointer;
+export const Notifications = styled(Hoverable)`
+  padding: 10px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     display: none;
@@ -120,10 +121,16 @@ export const Avatar = styled.div`
   cursor: pointer;
 `;
 
-export const Logo = styled.img.attrs(({ activeTheme }) => ({ src: !!activeTheme ? logo : logoDark }))`
-  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-    display: none;
-  } ;
+// export const Logo = styled.img.attrs(({ activeTheme }) => ({ src: !!activeTheme ? logo : logoDark }))`
+//   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+//     display: none;
+//   } ;
+// `;
+
+export const Logo = styled.div`
+  color: ${({ theme }) => theme.TEXT};
+  font-size: ${TYPOGRAPHY.SIZES.TEXT};
+  font-weight: ${TYPOGRAPHY.WEIGHT.STRONG};
 `;
 
 export const MenuButton = styled(FiAlignJustify).attrs(({ theme }) => ({

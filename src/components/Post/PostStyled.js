@@ -2,6 +2,7 @@ import styled from "styled-components";
 import TYPOGRAPHY from "../../constants/typography";
 import SCREEN from "../../constants/screen";
 import SHADOWS from "../../constants/shadows";
+import { Hoverable } from "../Hoverable/Hoverable";
 
 export const Container = styled.div`
   display: flex;
@@ -101,20 +102,9 @@ export const InteractionsRow = styled.div`
   margin-top: 15px;
 `;
 
-export const Interaction = styled.div`
+export const Interaction = styled(Hoverable)`
   display: flex;
   flex-direction: row;
   margin-right: 2px;
   height: 25px;
-  width: max-content;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  border-radius: 8px;
-  padding: 5px 7px;
-  align-items: center;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.CARD_ACCENT};
-  }
 `;

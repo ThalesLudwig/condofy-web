@@ -10,4 +10,6 @@ export const EN_US = {
   "app.menu.notifications": "Notifications",
   "app.navbar.search": "Search",
   "app.menu.marketplace": "Marketplace",
+  "post.input.defaultText": "Say hi to your neighbors!",
+  "post.input.publish": "Publish",
 };

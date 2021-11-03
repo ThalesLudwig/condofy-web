@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { FiImage } from "react-icons/fi";
 import getNameInitials from "../../helpers/getNameInitials";
 import { withTheme } from "styled-components";
+import { useIntl } from "react-intl";
+import localization from "./localization";
 import {
   Container,
   Avatar,
@@ -18,6 +20,8 @@ import {
 } from "./PostInputStyled";
 
 const PostInput = ({ avatarUrl, name, username, residence, theme }) => {
+  const { formatMessage } = useIntl();
+
   const expandTextarea = (e) => {
     e.target.style.height = "inherit";
     e.target.style.height = `${e.target.scrollHeight}px`;
@@ -32,12 +36,12 @@ const PostInput = ({ avatarUrl, name, username, residence, theme }) => {
           <Info>{`${username} | ${residence}`}</Info>
         </InfoWrapper>
       </Header>
-      <Content placeholder="Diga olá para seus vizinhos!" onKeyDown={expandTextarea} />
+      <Content placeholder={formatMessage(localization.defaultText)} onKeyDown={expandTextarea} />
       <InteractionsRow>
         <Interaction>
           <FiImage color={theme.TEXT_LIGHT} size={20} />
         </Interaction>
-        <Publish>Publicar</Publish>
+        <Publish>{formatMessage(localization.publish)}</Publish>
       </InteractionsRow>
     </Container>
   );

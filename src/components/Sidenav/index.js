@@ -83,6 +83,7 @@ const Sidenav = ({ theme, isOpen, setIsOpen }) => {
           <FiCalendar size={20} color={"/reservations" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.reservations)}</LinkText>
         </Link>
+        <Divisor />
         <Link to="/marketplace">
           <FiShoppingCart size={20} color={"/marketplace" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.marketplace)}</LinkText>

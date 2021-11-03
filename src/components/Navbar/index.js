@@ -22,7 +22,7 @@ const Navbar = ({ activeTheme, onOpen }) => {
   return (
     <Container>
       <Wrapper>
-        <Logo activeTheme={activeTheme} />
+        <Logo>Condofy</Logo>
         <MenuButton id="menu-button" onClick={onOpen} />
         <Search>
           <SearchIcon>search</SearchIcon>

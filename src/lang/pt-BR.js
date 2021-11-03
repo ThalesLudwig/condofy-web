@@ -10,4 +10,6 @@ export const PT_BR = {
   "app.menu.notifications": "Notificações",
   "app.navbar.search": "Pesquisar",
   "app.menu.marketplace": "Classificados",
+  "post.input.defaultText": "Diga olá para seus vizinhos!",
+  "post.input.publish": "Publicar",
 };

@@ -1,5 +1,6 @@
 const LIGHT = {
-  ACCENT: "#6239fd",
+  ACCENT: "#74b1b8",
+  SECONDARY: "#fd7e51",
   TEXT: "#1D3A5F",
   TEXT_LIGHT: "#A4AFBE",
   BACKGROUND: "#FAFBFC",
@@ -11,7 +12,8 @@ const LIGHT = {
 };
 
 const DARK = {
-  ACCENT: "#616fff",
+  ACCENT: "#95d0d4",
+  SECONDARY: "#fd7e51",
   TEXT: "#8683ab",
   TEXT_LIGHT: "#a8a4c4",
   BACKGROUND: "#28254d",

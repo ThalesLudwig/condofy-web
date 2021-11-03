@@ -193,5 +193,6 @@ export const Link = styled(NavLink).attrs(({ theme }) => ({
   &:hover {
     color: ${({ theme }) => theme.TEXT};
     background-color: ${({ theme }) => theme.BACKGROUND};
+    border-left: 3px solid ${({ theme }) => theme.BACKGROUND};
   }
 `;

@@ -12,4 +12,6 @@ export const EN_US = {
   "app.menu.marketplace": "Marketplace",
   "post.input.defaultText": "Say hi to your neighbors!",
   "post.input.publish": "Publish",
+  "app.feed.noposts.first": "Oh, there's nothing here.",
+  "app.feed.noposts.second": "Try saying hi to your neighbors!",
 };

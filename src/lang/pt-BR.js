@@ -12,4 +12,6 @@ export const PT_BR = {
   "app.menu.marketplace": "Classificados",
   "post.input.defaultText": "Diga olá para seus vizinhos!",
   "post.input.publish": "Publicar",
+  "app.feed.noposts.first": "Opa, não tem nada aqui.",
+  "app.feed.noposts.second": "Tente dizer oi para os seus vizinhos!",
 };

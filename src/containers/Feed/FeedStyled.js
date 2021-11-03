@@ -78,8 +78,8 @@ export const NoPosts = styled.div`
 export const NoDataImage = styled.img.attrs({
   src: noDataImg,
 })`
-  width: 110px;
-  margin-bottom: 20px;
+  width: 150px;
+  margin: 20px;
 `;
 
 export const NoPostsText = styled.div`

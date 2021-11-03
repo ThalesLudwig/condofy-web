@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import getNameInitials from "../../helpers/getNameInitials";
 import { withTheme } from "styled-components";
 import { FiHeart, FiMessageSquare } from "react-icons/fi";
+import { dateParser } from "../../helpers/dateParser";
 import {
   Container,
   Avatar,
@@ -30,7 +31,7 @@ const Post = ({ avatarUrl, name, username, residence, date, likes, comments, chi
             <Name>{name}</Name>
             <Info>{`${username} | ${residence}`}</Info>
           </NameWrapper>
-          <DateTime>{date}</DateTime>
+          <DateTime>{dateParser(date)}</DateTime>
         </InfoWrapper>
       </Header>
       <Content>{children}</Content>

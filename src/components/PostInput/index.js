@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FiImage } from "react-icons/fi";
 import getNameInitials from "../../helpers/getNameInitials";
@@ -19,12 +19,18 @@ import {
   Publish,
 } from "./PostInputStyled";
 
-const PostInput = ({ avatarUrl, name, username, residence, theme }) => {
+const PostInput = ({ avatarUrl, name, username, residence, theme, onInput }) => {
   const { formatMessage } = useIntl();
+  const [text, setText] = useState("");
 
   const expandTextarea = (e) => {
     e.target.style.height = "inherit";
     e.target.style.height = `${e.target.scrollHeight}px`;
+  };
+
+  const onSubmit = () => {
+    onInput({ text });
+    setText("");
   };
 
   return (
@@ -36,12 +42,17 @@ const PostInput = ({ avatarUrl, name, username, residence, theme }) => {
           <Info>{`${username} | ${residence}`}</Info>
         </InfoWrapper>
       </Header>
-      <Content placeholder={formatMessage(localization.defaultText)} onKeyDown={expandTextarea} />
+      <Content
+        onChange={(e) => setText(e.target.value)}
+        placeholder={formatMessage(localization.defaultText)}
+        onKeyDown={expandTextarea}
+        value={text}
+      />
       <InteractionsRow>
         <Interaction>
           <FiImage color={theme.TEXT_LIGHT} size={20} />
         </Interaction>
-        <Publish>{formatMessage(localization.publish)}</Publish>
+        <Publish onClick={onSubmit}>{formatMessage(localization.publish)}</Publish>
       </InteractionsRow>
     </Container>
   );
@@ -52,6 +63,7 @@ PostInput.propTypes = {
   name: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   residence: PropTypes.string.isRequired,
+  onInput: PropTypes.func.isRequired,
 };
 
 PostInput.defaultProps = {

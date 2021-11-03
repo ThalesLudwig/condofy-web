@@ -1,20 +1,14 @@
 import styled from "styled-components";
 import TYPOGRAPHY from "../../constants/typography";
 import defaultAvatar from "../../assets/default_avatar.jpeg";
+import { Hoverable } from "../Hoverable/Hoverable";
 
-export const Container = styled.div`
+export const Container = styled(Hoverable)`
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  cursor: pointer;
   padding: 10px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.CARD};
-  }
+  width: 100%;
 `;
 
 export const AvatarDefault = styled.div`

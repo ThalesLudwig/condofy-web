@@ -131,6 +131,10 @@ export const Logo = styled.div`
   color: ${({ theme }) => theme.TEXT};
   font-size: ${TYPOGRAPHY.SIZES.TEXT};
   font-weight: ${TYPOGRAPHY.WEIGHT.STRONG};
+
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+    display: none;
+  } ;
 `;
 
 export const MenuButton = styled(FiAlignJustify).attrs(({ theme }) => ({

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { SettingsWrapper, Title, Label, LabelWrapper } from "./SettingsStyled";
-import { setLightTheme, setDarkTheme } from "../../slices/themeSlice";
-import { setEnglish, setPortuguese } from "../../slices/localizationSlice";
+import { setLightTheme, setDarkTheme } from "../../store/themeSlice";
+import { setEnglish, setPortuguese } from "../../store/localizationSlice";
 import LANG_CONSTANTS from "../../constants/lang";
 
 const Settings = ({ theme, setLightTheme, setDarkTheme, language, setEnglish, setPortuguese }) => {

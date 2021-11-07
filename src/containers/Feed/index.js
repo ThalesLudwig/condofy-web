@@ -13,7 +13,7 @@ const Feed = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const { formatMessage } = useIntl();
-  const mockUserId = "12f41c1e-4601-4147-8000-9f6204784918";
+  const mockUserId = "a3a50f76-9e9b-4d1c-8598-d1be3c50651c";
 
   useEffect(() => {
     const feedService = new FeedService();

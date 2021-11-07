@@ -5,8 +5,8 @@ export class FeedService {
     baseURL: process.env.REACT_APP_API_HOST,
   });
 
-  getPostsByUserId(userId) {
-    return this.connection.get(`posts?userId=${userId}`);
+  getPostsByUserId(userId, { page, size }) {
+    return this.connection.get(`posts?userId=${userId}&size=${size}&page=${page}`);
   }
 
   createPost(user_id, { text }) {

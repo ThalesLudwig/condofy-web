@@ -87,3 +87,8 @@ export const NoPostsText = styled.div`
   color: ${({ theme }) => theme.TEXT};
   margin: 2px 0px;
 `;
+
+export const InfiniteLoadingTrigger = styled.div`
+  width: 1px;
+  height: 1px;
+`;

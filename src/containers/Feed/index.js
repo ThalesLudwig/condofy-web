@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useIntl } from "react-intl";
 import Message from "../../components/Message";
 import Post from "../../components/Post";
@@ -6,22 +6,38 @@ import PostInput from "../../components/PostInput";
 import avatarMock from "../../assets/avatarmock.jpg";
 import Loader from "../../components/Loader";
 import localization from "./localization";
+import { useOnScreen } from "../../hooks/useOnScreen";
 import { FeedService } from "../../services/FeedService";
-import { FeedWrapper, Posts, PostsLane, MessagesLane, Messages, NoPosts, NoDataImage, NoPostsText } from "./FeedStyled";
+import { PAGE_SIZE } from "../../constants/feed";
+import {
+  FeedWrapper,
+  Posts,
+  PostsLane,
+  MessagesLane,
+  Messages,
+  NoPosts,
+  NoDataImage,
+  NoPostsText,
+  InfiniteLoadingTrigger,
+} from "./FeedStyled";
 
 const Feed = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
+  const [page, setPage] = useState(1);
   const { formatMessage } = useIntl();
+  const infiniteLoadingRef = useRef(null);
+  const shouldLoadMore = useOnScreen(infiniteLoadingRef);
+
   const mockUserId = "a3a50f76-9e9b-4d1c-8598-d1be3c50651c";
 
   useEffect(() => {
     const feedService = new FeedService();
     setIsLoading(true);
     feedService
-      .getPostsByUserId(mockUserId)
+      .getPostsByUserId(mockUserId, { page, size: PAGE_SIZE })
       .then(({ data }) => {
-        setPosts(data);
+        setPosts([...posts, ...data]);
       })
       .catch((error) => {
         console.log("ERROR | getPostsByUserId", error);
@@ -29,7 +45,7 @@ const Feed = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [page]);
 
   const renderNoData = () => (
     <NoPosts>
@@ -40,7 +56,7 @@ const Feed = () => {
   );
 
   const renderPosts = () => {
-    if (posts.length === 0) {
+    if (posts.length === 0 && !isLoading) {
       return renderNoData();
     } else {
       return posts.map((p) => (
@@ -50,7 +66,7 @@ const Feed = () => {
           username={p.user.username}
           residence={p.user.residence}
           date={p.created_at}
-          likes="0"
+          likes={[]}
           comments={[]}>
           {p.text}
         </Post>
@@ -64,7 +80,6 @@ const Feed = () => {
     feedService
       .createPost(mockUserId, newPost)
       .then(({ data }) => {
-        console.log(data);
         setPosts([data, ...posts]);
       })
       .catch((error) => {
@@ -74,6 +89,12 @@ const Feed = () => {
         setIsLoading(false);
       });
   };
+
+  useEffect(() => {
+    if (!isLoading && shouldLoadMore) {
+      setPage(page + 1);
+    }
+  }, [shouldLoadMore]);
 
   return (
     <FeedWrapper>
@@ -86,8 +107,9 @@ const Feed = () => {
             residence="1303B"
             avatarUrl={avatarMock}
           />
+          {renderPosts()}
           <Loader isLoading={isLoading} />
-          {!isLoading && renderPosts()}
+          <InfiniteLoadingTrigger ref={infiniteLoadingRef} />
         </Posts>
       </PostsLane>
       <MessagesLane>

@@ -49,53 +49,53 @@ const Sidenav = ({ theme, isOpen, setIsOpen }) => {
   return (
     <SidenavWrapper isOpen={isOpen} ref={sideNavRef}>
       <TopContainer>
-        <Link to="/">
+        <Link to="/" onClick={() => setIsOpen(false)}>
           <FiHome size={20} color={"/" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.feed)}</LinkText>
         </Link>
         <Divisor />
-        <Link to="/messages">
+        <Link to="/messages" onClick={() => setIsOpen(false)}>
           <FiMessageCircle size={20} color={"/messages" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.messages)}</LinkText>
         </Link>
         <Divisor />
-        <Link to="/statements">
+        <Link to="/statements" onClick={() => setIsOpen(false)}>
           <FiMic size={20} color={"/statements" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.announcements)}</LinkText>
         </Link>
         <Divisor />
-        <Link to="/residents">
+        <Link to="/residents" onClick={() => setIsOpen(false)}>
           <FiUsers size={20} color={"/residents" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.residents)}</LinkText>
         </Link>
         <Divisor />
-        <Link to="/authorizations">
+        <Link to="/authorizations" onClick={() => setIsOpen(false)}>
           <FiLock size={20} color={"/authorizations" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.authorizations)}</LinkText>
         </Link>
         <Divisor />
-        <Link to="/deliveries">
+        <Link to="/deliveries" onClick={() => setIsOpen(false)}>
           <FiShoppingBag size={20} color={"/deliveries" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.deliveries)}</LinkText>
         </Link>
         <Divisor />
-        <Link to="/reservations">
+        <Link to="/reservations" onClick={() => setIsOpen(false)}>
           <FiCalendar size={20} color={"/reservations" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.reservations)}</LinkText>
         </Link>
         <Divisor />
-        <Link to="/marketplace">
+        <Link to="/marketplace" onClick={() => setIsOpen(false)}>
           <FiShoppingCart size={20} color={"/marketplace" === pathname ? theme.ACCENT : theme.TEXT_LIGHT} />
           <LinkText>{formatMessage(localization.marketplace)}</LinkText>
         </Link>
       </TopContainer>
       <BottomContainer>
         <BottomActionWrapper>
-          <BottomAction to="/settings">
+          <BottomAction to="/settings" onClick={() => setIsOpen(false)}>
             <FiSettings size={20} color={theme.ACCENT} />
             <BottomActionText>{formatMessage(localization.settings)}</BottomActionText>
           </BottomAction>
-          <BottomAction to="/notifications">
+          <BottomAction to="/notifications" onClick={() => setIsOpen(false)}>
             <FiBell size={20} color={theme.ACCENT} />
             <BottomActionText>{formatMessage(localization.notifications)}</BottomActionText>
           </BottomAction>

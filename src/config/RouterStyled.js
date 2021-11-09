@@ -12,6 +12,7 @@ export const SidenavWrapper = styled.div`
     bottom: 0;
     top: 80px;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   }
 `;

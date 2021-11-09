@@ -9,7 +9,7 @@ import Loader from "../../components/Loader";
 import localization from "./localization";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { PAGE_SIZE } from "../../constants/feed";
-import { fetchPostsById, createPost } from "../../store/postSlice";
+import { fetchPostsById, createPost, cleanUp } from "../../store/postSlice";
 import {
   FeedWrapper,
   Posts,
@@ -33,6 +33,9 @@ const Feed = ({ posts, isLoading, hasError }) => {
 
   useEffect(() => {
     dispatch(fetchPostsById({ userId: mockUserId, page, size: PAGE_SIZE }));
+    return () => {
+      dispatch(cleanUp());
+    };
   }, [page, dispatch]);
 
   const renderNoData = () => (

@@ -33,7 +33,7 @@ const Feed = ({ posts, isLoading, hasError }) => {
 
   useEffect(() => {
     dispatch(fetchPostsById({ userId: mockUserId, page, size: PAGE_SIZE }));
-  }, [page]);
+  }, [page, dispatch]);
 
   const renderNoData = () => (
     <NoPosts>
@@ -70,7 +70,7 @@ const Feed = ({ posts, isLoading, hasError }) => {
     if (!isLoading && shouldLoadMore) {
       setPage(page + 1);
     }
-  }, [shouldLoadMore]);
+  }, [shouldLoadMore]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <FeedWrapper>

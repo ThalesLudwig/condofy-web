@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import TYPOGRAPHY from "../../constants/typography";
 import SCREEN from "../../constants/screen";
-import logo from "../../assets/logo.svg";
-import logoDark from "../../assets/logo_dark.svg";
 import SHADOWS from "../../constants/shadows";
 import avatarMock from "../../assets/avatarmock.jpg";
 import { FiSearch, FiBell, FiAlignJustify } from "react-icons/fi";

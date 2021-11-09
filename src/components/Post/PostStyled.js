@@ -26,6 +26,7 @@ export const Container = styled.div`
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin-bottom: 15px;
 `;
 
@@ -68,6 +69,10 @@ export const InfoWrapper = styled.div`
   justify-content: center;
 `;
 
+export const HeaderContent = styled.div`
+  display: flex;
+`;
+
 export const NameWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -108,4 +113,28 @@ export const Interaction = styled(Hoverable)`
   flex-direction: row;
   margin-right: 2px;
   height: 25px;
+`;
+
+export const Divisor = styled.div`
+  height: 2px;
+  background-color: ${({ theme }) => theme.BACKGROUND};
+  width: 100%;
+
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+    display: none;
+  }
+`;
+
+export const MenuOption = styled.div`
+  color: ${({ theme }) => theme.TEXT_LIGHT};
+  padding: 10px;
+  font-size: ${TYPOGRAPHY.SIZES.TEXT};
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+`;
+
+export const Dropdown = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

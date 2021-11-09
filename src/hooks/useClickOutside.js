@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 
-export function useClickOutside(ref, callback, exceptions) {
+export function useClickOutside(ref, callback, exceptionIds) {
   const handleClick = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
       let hasClickedAnException = false;
 
-      exceptions.forEach((el) => {
-        const exception = document.getElementById(el);
-        if (exception.contains(e.target)) hasClickedAnException = true;
-      });
+      if (exceptionIds && exceptionIds.length > 0) {
+        exceptionIds.forEach((el) => {
+          const exception = document.getElementById(el);
+          if (exception.contains(e.target)) hasClickedAnException = true;
+        });
+      }
 
       if (!hasClickedAnException) {
         callback();

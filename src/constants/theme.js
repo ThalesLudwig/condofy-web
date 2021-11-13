@@ -14,8 +14,8 @@ const LIGHT = {
 const DARK = {
   ACCENT: "#95d0d4",
   SECONDARY: "#fd7e51",
-  TEXT: "#8683ab",
-  TEXT_LIGHT: "#a8a4c4",
+  TEXT: "#a8a4c4",
+  TEXT_LIGHT: "#8683ab",
   BACKGROUND: "#28254d",
   CARD: "#353360",
   CARD_ACCENT: "#2e2c57",

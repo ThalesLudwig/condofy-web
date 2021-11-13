@@ -48,7 +48,7 @@ const Post = ({ avatarUrl, name, username, residence, date, likes, comments, chi
           isOpen={isOptionsOpen}
           openButton={
             <Interaction id="post-dropdown-button" onClick={() => setIsOptionsOpen(!isOptionsOpen)}>
-              <FiMoreVertical color={theme.TEXT_LIGHT} size={20} />
+              <FiMoreVertical color={theme.TEXT} size={20} />
             </Interaction>
           }
           onClose={() => setIsOptionsOpen(false)}>
@@ -62,11 +62,11 @@ const Post = ({ avatarUrl, name, username, residence, date, likes, comments, chi
       <Content>{children}</Content>
       <InteractionsRow>
         <Interaction>
-          <FiHeart size={20} color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT_LIGHT} />
+          <FiHeart size={20} color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT} />
           {likes.length > 0 && <Info>{likes.length}</Info>}
         </Interaction>
         <Interaction>
-          <FiMessageSquare color={theme.TEXT_LIGHT} size={20} />
+          <FiMessageSquare color={theme.TEXT} size={20} />
           {comments.length > 0 && <Info>{comments.length}</Info>}
         </Interaction>
       </InteractionsRow>

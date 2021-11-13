@@ -46,7 +46,6 @@ export const Options = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-right: 67px;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     margin-right: 0px;
@@ -65,11 +64,12 @@ export const Notifications = styled(Hoverable)`
 export const Search = styled.div`
   padding: 10px;
   background-color: ${({ theme }) => theme.CARD_ACCENT};
-  border-radius: 11px;
-  width: 456px;
+  border-radius: 5px;
+  width: 450px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  margin-left: 40px;
 
   @media (max-width: ${SCREEN.SIZES.TABLET}) {
     margin: 20px;
@@ -86,9 +86,9 @@ export const SearchInput = styled.input`
   box-sizing: border-box;
   outline: none;
   border: none;
-  color: ${({ theme }) => theme.TEXT_LIGHT};
+  color: ${({ theme }) => theme.TEXT};
   font-size: ${TYPOGRAPHY.SIZES.TEXT};
-  margin-left: 5px;
+  margin-left: 10px;
 
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -113,9 +113,9 @@ export const Avatar = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
   cursor: pointer;
 `;
 
@@ -148,11 +148,11 @@ export const MenuButton = styled(FiAlignJustify).attrs(({ theme }) => ({
 `;
 
 export const SearchIcon = styled(FiSearch).attrs(({ theme }) => ({
-  color: theme.TEXT_LIGHT,
+  color: theme.TEXT,
   size: 20,
 }))``;
 
 export const BellIcon = styled(FiBell).attrs(({ theme }) => ({
-  color: theme.ACCENT,
+  color: theme.TEXT,
   size: 20,
 }))``;

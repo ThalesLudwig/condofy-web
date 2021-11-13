@@ -60,7 +60,7 @@ export const Posts = styled.div`
 export const Messages = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 15px;
   -webkit-box-shadow: ${SHADOWS.BOX.CARD};
   box-shadow: ${SHADOWS.BOX.CARD};

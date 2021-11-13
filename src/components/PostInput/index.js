@@ -50,7 +50,7 @@ const PostInput = ({ avatarUrl, name, username, residence, theme, onInput }) => 
       />
       <InteractionsRow>
         <Interaction>
-          <FiImage color={theme.TEXT_LIGHT} size={20} />
+          <FiImage color={theme.TEXT} size={20} />
         </Interaction>
         <Publish onClick={onSubmit}>{formatMessage(localization.publish)}</Publish>
       </InteractionsRow>

@@ -9,9 +9,9 @@ export const Container = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: ${({ theme }) => theme.CARD};
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   -webkit-box-shadow: ${SHADOWS.BOX.CARD};
   box-shadow: ${SHADOWS.BOX.CARD};
   width: 100%;
@@ -33,6 +33,7 @@ export const Header = styled.div`
 export const Content = styled.div`
   font-size: ${TYPOGRAPHY.SIZES.TEXT};
   color: ${({ theme }) => theme.TEXT};
+  padding: 10px 0;
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     font-size: ${TYPOGRAPHY.SIZES.SMALL};
@@ -126,8 +127,8 @@ export const Divisor = styled.div`
 `;
 
 export const MenuOption = styled.div`
-  color: ${({ theme }) => theme.TEXT_LIGHT};
-  padding: 10px;
+  color: ${({ theme }) => theme.TEXT};
+  padding: 15px;
   font-size: ${TYPOGRAPHY.SIZES.TEXT};
   align-items: center;
   display: flex;

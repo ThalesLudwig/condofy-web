@@ -12,7 +12,7 @@ export const Dropdown = styled.div`
   background: ${({ theme }) => theme.CARD};
   box-shadow: ${SHADOWS.BOX.CARD};
   border: solid 0.5px ${({ theme }) => theme.CARD_ACCENT};
-  border-radius: 10px;
+  border-radius: 5px;
   width: max-content;
   z-index: 10;
 `;

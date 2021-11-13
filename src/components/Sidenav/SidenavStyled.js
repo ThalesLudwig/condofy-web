@@ -28,7 +28,7 @@ export const SidenavWrapper = styled.div`
 export const TopContainer = styled.div`
   background-color: ${({ theme }) => theme.CARD};
   padding: 20px 0px;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   -webkit-box-shadow: ${SHADOWS.BOX.CARD};
@@ -54,10 +54,16 @@ export const AvatarContainer = styled.div`
   padding: 15px;
   display: flex;
   flex-direction: row;
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
   -webkit-box-shadow: ${SHADOWS.BOX.CARD};
   box-shadow: ${SHADOWS.BOX.CARD};
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.CARD_ACCENT};
+  }
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     display: none;
@@ -76,14 +82,20 @@ export const BottomActionWrapper = styled.div`
   }
 `;
 
-export const BottomAction = styled(NavLink)`
+export const BottomAction = styled(NavLink).attrs(({ theme }) => ({
+  activeStyle: {
+    color: theme.ACCENT,
+    fontWeight: 500,
+  },
+  exact: true,
+}))`
   background-color: ${({ theme }) => theme.CARD};
-  color: ${({ theme }) => theme.TEXT_LIGHT};
+  color: ${({ theme }) => theme.TEXT};
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
   box-sizing: border-box;
   width: 120px;
@@ -95,7 +107,7 @@ export const BottomAction = styled(NavLink)`
   box-shadow: ${SHADOWS.BOX.CARD};
 
   &:hover {
-    color: ${({ theme }) => theme.ACCENT};
+    background-color: ${({ theme }) => theme.CARD_ACCENT};
   }
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
@@ -179,7 +191,7 @@ export const Link = styled(NavLink).attrs(({ theme }) => ({
   },
   exact: true,
 }))`
-  color: ${({ theme }) => theme.TEXT_LIGHT};
+  color: ${({ theme }) => theme.TEXT};
   text-decoration: none;
   padding: 13px 0px;
   padding-left: 20px;

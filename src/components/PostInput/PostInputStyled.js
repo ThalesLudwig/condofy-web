@@ -8,9 +8,9 @@ export const Container = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: ${({ theme }) => theme.CARD};
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   -webkit-box-shadow: ${SHADOWS.BOX.CARD};
   box-shadow: ${SHADOWS.BOX.CARD};
   width: 100%;

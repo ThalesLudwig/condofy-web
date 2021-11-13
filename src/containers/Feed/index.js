@@ -32,10 +32,13 @@ const Feed = ({ posts, isLoading, hasError }) => {
   const mockUserId = "a3a50f76-9e9b-4d1c-8598-d1be3c50651c";
 
   useEffect(() => {
-    dispatch(fetchPostsById({ userId: mockUserId, page, size: PAGE_SIZE }));
     return () => {
       dispatch(cleanUp());
     };
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchPostsById({ userId: mockUserId, page, size: PAGE_SIZE }));
   }, [page, dispatch]);
 
   const renderNoData = () => (

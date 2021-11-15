@@ -12,4 +12,8 @@ export class FeedService {
   createPost(user_id, { text }) {
     return this.connection.post("posts", { text, user_id });
   }
+
+  deletePost(postId) {
+    return this.connection.delete(`posts/${postId}`);
+  }
 }

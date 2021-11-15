@@ -26,7 +26,20 @@ import {
   Divisor,
 } from "./PostStyled";
 
-const Post = ({ avatarUrl, name, username, residence, date, likes, comments, children, theme }) => {
+const Post = ({
+  id,
+  avatarUrl,
+  name,
+  username,
+  residence,
+  date,
+  likes,
+  comments,
+  onDelete,
+  onUpdate,
+  children,
+  theme,
+}) => {
   const hasLikedThisPost = Math.random() < 0.5; // mocked as random
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
   const { formatMessage } = useIntl();
@@ -53,9 +66,9 @@ const Post = ({ avatarUrl, name, username, residence, date, likes, comments, chi
           }
           onClose={() => setIsOptionsOpen(false)}>
           <Dropdown>
-            <MenuOption>{formatMessage(localization.update)}</MenuOption>
+            <MenuOption onClick={onUpdate}>{formatMessage(localization.update)}</MenuOption>
             <Divisor />
-            <MenuOption>{formatMessage(localization.remove)}</MenuOption>
+            <MenuOption onClick={() => onDelete(id)}>{formatMessage(localization.remove)}</MenuOption>
           </Dropdown>
         </DropdownLinks>
       </Header>
@@ -75,6 +88,7 @@ const Post = ({ avatarUrl, name, username, residence, date, likes, comments, chi
 };
 
 Post.propTypes = {
+  id: PropTypes.string.isRequired,
   avatarUrl: PropTypes.string,
   name: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
@@ -82,6 +96,8 @@ Post.propTypes = {
   date: PropTypes.string,
   likes: PropTypes.array,
   comments: PropTypes.array,
+  onDelete: PropTypes.func,
+  onUpdate: PropTypes.func,
 };
 
 Post.defaultProps = {
@@ -89,6 +105,8 @@ Post.defaultProps = {
   date: "",
   likes: [],
   comments: [],
+  onDelete: () => {},
+  onUpdate: () => {},
 };
 
 export default withTheme(Post);

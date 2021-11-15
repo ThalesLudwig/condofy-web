@@ -9,7 +9,7 @@ import Loader from "../../components/Loader";
 import localization from "./localization";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { PAGE_SIZE } from "../../constants/feed";
-import { fetchPostsById, createPost, cleanUp } from "../../store/postSlice";
+import { fetchPostsById, createPost, cleanUp, deletePost } from "../../store/postSlice";
 import {
   FeedWrapper,
   Posts,
@@ -49,6 +49,10 @@ const Feed = ({ posts, isLoading, hasError }) => {
     </NoPosts>
   );
 
+  const onDeletePost = (postId) => {
+    dispatch(deletePost({ postId }));
+  };
+
   const renderPosts = () => {
     if (posts.length === 0 && !isLoading) {
       return renderNoData();
@@ -56,11 +60,13 @@ const Feed = ({ posts, isLoading, hasError }) => {
       return posts.map((p) => (
         <Post
           key={p.id}
+          id={p.id}
           name={`${p.user.firstName} ${p.user.lastName}`}
           username={p.user.username}
           residence={p.user.residence}
           date={p.created_at}
           likes={[]}
+          onDelete={onDeletePost}
           comments={[]}>
           {p.text}
         </Post>

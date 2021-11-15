@@ -16,4 +16,5 @@ export const EN_US = {
   "post.menu.update": "Update",
   "app.feed.noposts.first": "Oh, there's nothing here.",
   "app.feed.noposts.second": "Try saying hi to your neighbors!",
+  "post.navigation.back": "Back",
 };

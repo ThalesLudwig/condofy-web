@@ -16,4 +16,5 @@ export const PT_BR = {
   "post.menu.update": "Editar",
   "app.feed.noposts.first": "Opa, não tem nada aqui.",
   "app.feed.noposts.second": "Tente dizer oi para os seus vizinhos!",
+  "post.navigation.back": "Voltar",
 };

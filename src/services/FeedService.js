@@ -9,6 +9,10 @@ export class FeedService {
     return this.connection.get(`posts?userId=${userId}&size=${size}&page=${page}`);
   }
 
+  getPostById(postId) {
+    return this.connection.get(`posts/${postId}`);
+  }
+
   createPost(user_id, { text }) {
     return this.connection.post("posts", { text, user_id });
   }

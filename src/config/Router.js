@@ -9,6 +9,7 @@ import Authorizations from "../containers/Authorizations";
 import Deliveries from "../containers/Deliveries";
 import Marketplace from "../containers/Marketplace";
 import Settings from "../containers/Settings";
+import PostDetails from "../containers/PostDetails";
 import Sidenav from "../components/Sidenav";
 import Navbar from "../components/Navbar";
 import { ContentWrapper, SidenavWrapper } from "./RouterStyled";
@@ -33,6 +34,7 @@ const Router = () => {
           <Route exact path="/marketplace" component={Marketplace} />
           <Route exact path="/reservations" component={Reservations} />
           <Route exact path="/settings" component={Settings} />
+          <Route exact path="/posts/:id" component={PostDetails} />
           <Route path="*">
             <div>404</div>
           </Route>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 import Message from "../../components/Message";
 import Post from "../../components/Post";
@@ -28,14 +29,9 @@ const Feed = ({ posts, isLoading, hasError }) => {
   const infiniteLoadingRef = useRef(null);
   const shouldLoadMore = useOnScreen(infiniteLoadingRef);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const mockUserId = "a3a50f76-9e9b-4d1c-8598-d1be3c50651c";
-
-  useEffect(() => {
-    return () => {
-      dispatch(cleanUp());
-    };
-  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchPostsById({ userId: mockUserId, page, size: PAGE_SIZE }));
@@ -53,6 +49,10 @@ const Feed = ({ posts, isLoading, hasError }) => {
     dispatch(deletePost({ postId }));
   };
 
+  const onUpdatePost = (postId) => {
+    history.push(`posts/${postId}`);
+  };
+
   const renderPosts = () => {
     if (posts.length === 0 && !isLoading) {
       return renderNoData();
@@ -67,6 +67,7 @@ const Feed = ({ posts, isLoading, hasError }) => {
           date={p.created_at}
           likes={[]}
           onDelete={onDeletePost}
+          onUpdate={onUpdatePost}
           comments={[]}>
           {p.text}
         </Post>

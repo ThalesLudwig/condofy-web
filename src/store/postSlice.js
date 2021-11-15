@@ -4,6 +4,7 @@ import { FeedService } from "../services/FeedService";
 const BASE_ACTION_NAME = "POSTS/";
 
 const ACTION_FETCH_POSTS = `${BASE_ACTION_NAME}FETCH_POSTS`;
+const ACTION_FETCH_POST = `${BASE_ACTION_NAME}FETCH_POST`;
 const ACTION_CREATE_POSTS = `${BASE_ACTION_NAME}CREATE_POST`;
 const ACTION_DELETE_POSTS = `${BASE_ACTION_NAME}DELETE_POST`;
 
@@ -28,10 +29,17 @@ export const deletePost = createAsyncThunk(ACTION_DELETE_POSTS, async ({ postId 
   return previousPosts.filter((post) => post.id !== postId);
 });
 
+export const fetchPost = createAsyncThunk(ACTION_FETCH_POST, async (postId) => {
+  const feedService = new FeedService();
+  const post = await feedService.getPostById(postId);
+  return post.data;
+});
+
 const postSlice = createSlice({
   name: "posts",
   initialState: {
     value: [],
+    selectedPost: null,
     isLoading: false,
     hasError: false,
   },
@@ -78,6 +86,19 @@ const postSlice = createSlice({
         state.hasError = false;
       })
       .addCase(deletePost.rejected, (state) => {
+        state.isLoading = false;
+        state.hasError = true;
+      })
+      .addCase(fetchPost.pending, (state) => {
+        state.isLoading = true;
+        state.hasError = false;
+      })
+      .addCase(fetchPost.fulfilled, (state, action) => {
+        state.selectedPost = action.payload;
+        state.isLoading = false;
+        state.hasError = false;
+      })
+      .addCase(fetchPost.rejected, (state) => {
         state.isLoading = false;
         state.hasError = true;
       });

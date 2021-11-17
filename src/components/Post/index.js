@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useIntl } from "react-intl";
 import getNameInitials from "../../helpers/getNameInitials";
 import { withTheme } from "styled-components";
-import { FiHeart, FiMessageSquare, FiMoreVertical, FiTrash2 } from "react-icons/fi";
+import { FiHeart, FiMessageSquare, FiMoreVertical } from "react-icons/fi";
 import { dateParser } from "../../helpers/dateParser";
 import DropdownLinks from "../DropdownLinks/DropdownLinks";
 import localization from "./localization";
@@ -37,9 +37,6 @@ const Post = ({
   comments,
   onDelete,
   onUpdate,
-  showOptions,
-  showDelete,
-  allowInteraction,
   children,
   theme,
 }) => {
@@ -60,41 +57,32 @@ const Post = ({
             <DateTime>{dateParser(date)}</DateTime>
           </InfoWrapper>
         </HeaderContent>
-        {showOptions && (
-          <DropdownLinks
-            isOpen={isOptionsOpen}
-            openButton={
-              <Interaction id="post-dropdown-button" onClick={() => setIsOptionsOpen(!isOptionsOpen)}>
-                <FiMoreVertical color={theme.TEXT} size={20} />
-              </Interaction>
-            }
-            onClose={() => setIsOptionsOpen(false)}>
-            <Dropdown>
-              <MenuOption onClick={() => onUpdate(id)}>{formatMessage(localization.update)}</MenuOption>
-              <Divisor />
-              <MenuOption onClick={() => onDelete(id)}>{formatMessage(localization.remove)}</MenuOption>
-            </Dropdown>
-          </DropdownLinks>
-        )}
+        <DropdownLinks
+          isOpen={isOptionsOpen}
+          openButton={
+            <Interaction id="post-dropdown-button" onClick={() => setIsOptionsOpen(!isOptionsOpen)}>
+              <FiMoreVertical color={theme.TEXT} size={20} />
+            </Interaction>
+          }
+          onClose={() => setIsOptionsOpen(false)}>
+          <Dropdown>
+            <MenuOption onClick={() => onUpdate(id)}>{formatMessage(localization.update)}</MenuOption>
+            <Divisor />
+            <MenuOption onClick={() => onDelete(id)}>{formatMessage(localization.remove)}</MenuOption>
+          </Dropdown>
+        </DropdownLinks>
       </Header>
       <Content>{children}</Content>
-      {allowInteraction && (
-        <InteractionsRow>
-          <Interaction>
-            <FiHeart size={20} color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT} />
-            {likes.length > 0 && <Info>{likes.length}</Info>}
-          </Interaction>
-          <Interaction>
-            <FiMessageSquare color={theme.TEXT} size={20} />
-            {comments.length > 0 && <Info>{comments.length}</Info>}
-          </Interaction>
-          {showDelete && (
-            <Interaction onClick={() => onDelete(id)}>
-              <FiTrash2 color={theme.TEXT} size={20} />
-            </Interaction>
-          )}
-        </InteractionsRow>
-      )}
+      <InteractionsRow>
+        <Interaction>
+          <FiHeart size={20} color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT} />
+          {likes.length > 0 && <Info>{likes.length}</Info>}
+        </Interaction>
+        <Interaction>
+          <FiMessageSquare color={theme.TEXT} size={20} />
+          {comments.length > 0 && <Info>{comments.length}</Info>}
+        </Interaction>
+      </InteractionsRow>
     </Container>
   );
 };
@@ -110,9 +98,6 @@ Post.propTypes = {
   comments: PropTypes.array,
   onDelete: PropTypes.func,
   onUpdate: PropTypes.func,
-  showOptions: PropTypes.bool,
-  showDelete: PropTypes.bool,
-  allowInteraction: PropTypes.bool,
 };
 
 Post.defaultProps = {
@@ -122,9 +107,6 @@ Post.defaultProps = {
   comments: [],
   onDelete: () => {},
   onUpdate: () => {},
-  showOptions: true,
-  showDelete: false,
-  allowInteraction: true,
 };
 
 export default withTheme(Post);

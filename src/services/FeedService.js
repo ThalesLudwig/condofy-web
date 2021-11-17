@@ -17,6 +17,10 @@ export class FeedService {
     return this.connection.post("posts", { text, user_id });
   }
 
+  updatePost(post) {
+    return this.connection.put(`posts/${post.id}`, post);
+  }
+
   deletePost(postId) {
     return this.connection.delete(`posts/${postId}`);
   }

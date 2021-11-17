@@ -44,7 +44,7 @@ export const MessagesLane = styled.div`
   flex-direction: column;
   width: 300px;
   margin-left: 25px;
-  padding: 20px 0px;
+  padding: 15px 0px;
 
   @media (max-width: ${SCREEN.SIZES.TABLET}) {
     display: none;

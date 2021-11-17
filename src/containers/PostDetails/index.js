@@ -3,20 +3,20 @@ import { connect, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 import Message from "../../components/Message";
-import Post from "../../components/Post";
+import PostEdit from "../../components/PostEdit";
 import Loader from "../../components/Loader";
 import localization from "./localization";
-import { fetchPost, deletePost, cleanUp } from "../../store/postSlice";
+import { fetchPost, deletePost, cleanUp, updatePost } from "../../store/postSlice";
 import { useParams } from "react-router-dom";
 import {
   FeedWrapper,
-  Posts,
   PostsLane,
   MessagesLane,
   Messages,
   BackArrow,
   BackText,
   BackRow,
+  LoaderWrapper,
 } from "./PostDetailsStyled";
 
 const PostDetails = ({ post, isLoading, hasError }) => {
@@ -36,32 +36,37 @@ const PostDetails = ({ post, isLoading, hasError }) => {
     dispatch(deletePost({ postId }));
   };
 
+  const submitNewPost = (text) => {
+    dispatch(updatePost({ id, text }));
+  };
+
   return (
     <FeedWrapper>
       <PostsLane>
-        <BackRow onClick={() => history.push("/")}>
-          <BackArrow />
-          <BackText>{formatMessage(localization.feed)}</BackText>
-        </BackRow>
-        <Posts>
-          {!!post && !isLoading && (
-            <Post
-              id={post.id}
-              name={`${post.user.firstName} ${post.user.lastName}`}
-              username={post.user.username}
-              residence={post.user.residence}
-              date={post.created_at}
-              likes={[]}
-              showOptions={false}
-              showDelete
-              onDelete={onDeletePost}
-              allowInteraction={allowInteraction}
-              comments={[]}>
-              {post.text}
-            </Post>
-          )}
+        {!isLoading && (
+          <BackRow onClick={() => history.push("/")}>
+            <BackArrow />
+            <BackText>{formatMessage(localization.feed)}</BackText>
+          </BackRow>
+        )}
+        {!!post && !isLoading && (
+          <PostEdit
+            id={post.id}
+            name={`${post.user.firstName} ${post.user.lastName}`}
+            username={post.user.username}
+            residence={post.user.residence}
+            date={post.created_at}
+            likes={[]}
+            onDelete={onDeletePost}
+            allowInteraction={allowInteraction}
+            onSubmit={submitNewPost}
+            comments={[]}>
+            {post.text}
+          </PostEdit>
+        )}
+        <LoaderWrapper>
           <Loader isLoading={isLoading} />
-        </Posts>
+        </LoaderWrapper>
       </PostsLane>
       <MessagesLane>
         <Messages>

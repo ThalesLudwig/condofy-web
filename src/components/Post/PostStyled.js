@@ -116,6 +116,12 @@ export const Interaction = styled(Hoverable)`
   height: 25px;
 `;
 
+export const InteractionSkeleton = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-right: 8px;
+`;
+
 export const Divisor = styled.div`
   height: 2px;
   background-color: ${({ theme }) => theme.BACKGROUND};

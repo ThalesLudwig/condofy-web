@@ -6,11 +6,11 @@ import Message from "../../components/Message";
 import Post from "../../components/Post";
 import PostInput from "../../components/PostInput";
 import avatarMock from "../../assets/avatarmock.jpg";
-import Loader from "../../components/Loader";
 import localization from "./localization";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { PAGE_SIZE } from "../../constants/feed";
-import { fetchPostsById, createPost, cleanUp, deletePost } from "../../store/postSlice";
+import { fetchPostsById, createPost, deletePost } from "../../store/postSlice";
+import PostSkeleton from "../../components/Post/Skeleton";
 import {
   FeedWrapper,
   Posts,
@@ -96,8 +96,8 @@ const Feed = ({ posts, isLoading, hasError }) => {
             residence="1303B"
             avatarUrl={avatarMock}
           />
+          {isLoading && <PostSkeleton />}
           {renderPosts()}
-          <Loader isLoading={isLoading} />
           <InfiniteLoadingTrigger ref={infiniteLoadingRef} />
         </Posts>
       </PostsLane>

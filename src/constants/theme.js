@@ -13,7 +13,7 @@ const LIGHT = {
 
 const DARK = {
   ACCENT: "#95d0d4",
-  SECONDARY: "#fd7e51",
+  SECONDARY: "#ab5638",
   TEXT: "#a8a4c4",
   TEXT_LIGHT: "#8683ab",
   BACKGROUND: "#28254d",

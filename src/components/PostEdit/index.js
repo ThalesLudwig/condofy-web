@@ -84,7 +84,13 @@ const PostEdit = ({
           </InteractionsRow>
         )}
       </Container>
-      {allowInteraction && <Button text="Salvar" onPress={() => onSubmit(text)} />}
+      {allowInteraction && (
+        <Button
+          isDisabled={text.trim().length <= 0}
+          text={formatMessage(localization.update)}
+          onPress={() => onSubmit(text)}
+        />
+      )}
     </>
   );
 };

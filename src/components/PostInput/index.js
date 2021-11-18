@@ -16,8 +16,8 @@ import {
   InteractionsRow,
   Interaction,
   AvatarDefault,
-  Publish,
 } from "./PostInputStyled";
+import { Button } from "../Button/Button";
 
 const PostInput = ({ avatarUrl, name, username, residence, theme, onInput }) => {
   const { formatMessage } = useIntl();
@@ -52,7 +52,12 @@ const PostInput = ({ avatarUrl, name, username, residence, theme, onInput }) => 
         <Interaction>
           <FiImage color={theme.TEXT} size={20} />
         </Interaction>
-        <Publish onClick={onSubmit}>{formatMessage(localization.publish)}</Publish>
+        <Button
+          isSmall
+          isDisabled={text.trim().length <= 0}
+          text={formatMessage(localization.publish)}
+          onPress={onSubmit}
+        />
       </InteractionsRow>
     </Container>
   );

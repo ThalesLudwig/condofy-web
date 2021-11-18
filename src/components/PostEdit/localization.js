@@ -5,4 +5,8 @@ export default defineMessages({
     id: "post.input.defaultText",
     defaultMessage: "Say hi to your neighbors!",
   },
+  update: {
+    id: "post.input.submit",
+    defaultMessage: "Update",
+  },
 });

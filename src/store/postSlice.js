@@ -13,7 +13,11 @@ export const fetchPostsById = createAsyncThunk(ACTION_FETCH_POSTS, async ({ user
   const feedService = new FeedService();
   const previousPosts = getState().posts.value;
   const response = await feedService.getPostsByUserId(userId, { page, size });
-  return [...previousPosts, ...response.data];
+  if (page === 1) {
+    return [...response.data];
+  } else {
+    return [...previousPosts, ...response.data];
+  }
 });
 
 export const createPost = createAsyncThunk(ACTION_CREATE_POSTS, async ({ userId, post }, { getState }) => {

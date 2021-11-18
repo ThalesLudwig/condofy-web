@@ -115,22 +115,3 @@ export const Interaction = styled.div`
     background-color: ${({ theme }) => theme.CARD_ACCENT};
   }
 `;
-
-export const Publish = styled.div`
-  display: flex;
-  height: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  border-radius: 8px;
-  padding: 5px 7px;
-  align-items: center;
-  font-size: ${TYPOGRAPHY.SIZES.TEXT};
-  color: ${({ theme }) => theme.TEXT};
-  border: 2px solid ${({ theme }) => theme.CARD};
-
-  &:hover {
-    color: ${({ theme }) => theme.ACCENT};
-    border-color: ${({ theme }) => theme.ACCENT};
-  }
-`;

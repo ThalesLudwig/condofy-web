@@ -17,4 +17,5 @@ export const PT_BR = {
   "app.feed.noposts.first": "Opa, não tem nada aqui.",
   "app.feed.noposts.second": "Tente dizer oi para os seus vizinhos!",
   "post.navigation.back": "Voltar",
+  "post.input.submit": "Atualizar",
 };

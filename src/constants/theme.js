@@ -8,7 +8,7 @@ const LIGHT = {
   CARD_ACCENT: "#F4F5F8",
   ONLINE_GREEN: "#A7E9AF",
   LIKE_RED: "#FF6187",
-  BUTTON: "#132743",
+  SKELETON: "#f1f2f8",
 };
 
 const DARK = {
@@ -21,7 +21,7 @@ const DARK = {
   CARD_ACCENT: "#2e2c57",
   ONLINE_GREEN: "#A7E9AF",
   LIKE_RED: "#FF6187",
-  BUTTON: "#132743",
+  SKELETON: "#252247",
 };
 
 const THEME = {

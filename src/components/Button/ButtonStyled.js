@@ -21,7 +21,7 @@ export const Container = styled.div`
   width: ${({ isSmall }) => (isSmall ? "max-content" : "unset")};
 
   &:hover {
-    background-color: ${({ theme, isDisabled }) => (isDisabled ? theme.BACKGROUND : theme.SECONDARY)};
+    background-color: ${({ theme, isDisabled }) => (isDisabled ? theme.BACKGROUND : theme.ACCENT)};
     color: ${({ theme, isDisabled }) => (isDisabled ? theme.TEXT_LIGHT : theme.CARD)};
     transform: ${({ isDisabled }) => (isDisabled ? "translateY(0px)" : "translateY(-2px)")};
   }

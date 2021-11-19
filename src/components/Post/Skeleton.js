@@ -13,7 +13,7 @@ import {
 
 const PostSkeleton = ({ theme }) => {
   return (
-    <SkeletonTheme baseColor={theme.TEXT_LIGHT} highlightColor={theme.TEXT}>
+    <SkeletonTheme baseColor={theme.SKELETON} highlightColor={theme.CARD}>
       <Container>
         <Header>
           <HeaderContent>

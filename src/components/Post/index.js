@@ -7,6 +7,7 @@ import { FiHeart, FiMessageSquare, FiMoreVertical } from "react-icons/fi";
 import { dateParser } from "../../helpers/dateParser";
 import DropdownLinks from "../DropdownLinks/DropdownLinks";
 import localization from "./localization";
+import { Modal } from "../Modal/Modal";
 import {
   Container,
   Avatar,
@@ -42,13 +43,19 @@ const Post = ({
 }) => {
   const hasLikedThisPost = Math.random() < 0.5; // mocked as random
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { formatMessage } = useIntl();
+
+  const onDeletePost = () => {
+    // setIsModalOpen(true);
+    onDelete(id);
+  };
 
   return (
     <Container>
       <Header>
         <HeaderContent>
-          {!!avatarUrl ? <Avatar avatarUrl={avatarUrl} /> : <AvatarDefault>{getNameInitials(name)}</AvatarDefault>}
+          {avatarUrl ? <Avatar avatarUrl={avatarUrl} /> : <AvatarDefault>{getNameInitials(name)}</AvatarDefault>}
           <InfoWrapper>
             <NameWrapper>
               <Name>{name}</Name>
@@ -68,7 +75,7 @@ const Post = ({
           <Dropdown>
             <MenuOption onClick={() => onUpdate(id)}>{formatMessage(localization.update)}</MenuOption>
             <Divisor />
-            <MenuOption onClick={() => onDelete(id)}>{formatMessage(localization.remove)}</MenuOption>
+            <MenuOption onClick={onDeletePost}>{formatMessage(localization.remove)}</MenuOption>
           </Dropdown>
         </DropdownLinks>
       </Header>
@@ -83,6 +90,9 @@ const Post = ({
           {comments.length > 0 && <Info>{comments.length}</Info>}
         </Interaction>
       </InteractionsRow>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        Foobar!
+      </Modal>
     </Container>
   );
 };

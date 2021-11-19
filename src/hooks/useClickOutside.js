@@ -8,7 +8,7 @@ export function useClickOutside(ref, callback, exceptionIds) {
       if (exceptionIds && exceptionIds.length > 0) {
         exceptionIds.forEach((el) => {
           const exception = document.getElementById(el);
-          if (exception.contains(e.target)) hasClickedAnException = true;
+          if (exception && exception.contains(e.target)) hasClickedAnException = true;
         });
       }
 

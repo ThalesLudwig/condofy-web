@@ -6,13 +6,7 @@ import { Container, Dropdown } from "./DropdownLinksStyled";
 const DropdownLinks = ({ isOpen, openButton, onClose, children }) => {
   const ContainerRef = useRef(null);
 
-  useClickOutside(
-    ContainerRef,
-    () => {
-      onClose();
-    },
-    ["post-dropdown-button"],
-  );
+  useClickOutside(ContainerRef, onClose);
 
   return (
     <Container ref={ContainerRef}>

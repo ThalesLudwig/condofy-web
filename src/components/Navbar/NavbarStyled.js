@@ -119,12 +119,6 @@ export const Avatar = styled.div`
   cursor: pointer;
 `;
 
-// export const Logo = styled.img.attrs(({ activeTheme }) => ({ src: !!activeTheme ? logo : logoDark }))`
-//   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
-//     display: none;
-//   } ;
-// `;
-
 export const Logo = styled.div`
   color: ${({ theme }) => theme.TEXT};
   font-size: ${TYPOGRAPHY.SIZES.TEXT};

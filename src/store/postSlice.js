@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { FeedService } from "../services/FeedService";
 
 const BASE_ACTION_NAME = "POSTS/";
-
 const ACTION_FETCH_POSTS = `${BASE_ACTION_NAME}FETCH_POSTS`;
 const ACTION_FETCH_POST = `${BASE_ACTION_NAME}FETCH_POST`;
 const ACTION_CREATE_POSTS = `${BASE_ACTION_NAME}CREATE_POST`;
@@ -40,9 +39,8 @@ export const fetchPost = createAsyncThunk(ACTION_FETCH_POST, async (postId) => {
   return post.data;
 });
 
-export const updatePost = createAsyncThunk(ACTION_UPDATE_POSTS, async (post, { getState }) => {
+export const updatePost = createAsyncThunk(ACTION_UPDATE_POSTS, async (post) => {
   const feedService = new FeedService();
-  // const previousPosts = getState().posts.value;
   const response = await feedService.updatePost(post);
   return response.data;
 });

@@ -97,6 +97,13 @@ export const InteractionsRow = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 15px;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const IconsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Interaction = styled(Hoverable)`

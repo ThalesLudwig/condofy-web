@@ -22,6 +22,7 @@ import {
   AvatarDefault,
   HeaderContent,
   EditBox,
+  IconsWrapper,
 } from "./PostEditStyled";
 
 const PostEdit = ({
@@ -72,28 +73,28 @@ const PostEdit = ({
         />
         {allowInteraction && (
           <InteractionsRow>
-            <Interaction>
-              <FiHeart size={20} color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT} />
-              {likes.length > 0 && <Info>{likes.length}</Info>}
-            </Interaction>
-            <Interaction>
-              <FiMessageSquare color={theme.TEXT} size={20} />
-              {comments.length > 0 && <Info>{comments.length}</Info>}
-            </Interaction>
-            <Interaction onClick={() => setIsModalOpen(true)}>
-              <FiTrash2 color={theme.TEXT} size={20} />
-            </Interaction>
+            <IconsWrapper>
+              <Interaction>
+                <FiHeart size={20} color={hasLikedThisPost ? theme.LIKE_RED : theme.TEXT} />
+                {likes.length > 0 && <Info>{likes.length}</Info>}
+              </Interaction>
+              <Interaction>
+                <FiMessageSquare color={theme.TEXT} size={20} />
+                {comments.length > 0 && <Info>{comments.length}</Info>}
+              </Interaction>
+              <Interaction onClick={() => setIsModalOpen(true)}>
+                <FiTrash2 color={theme.TEXT} size={20} />
+              </Interaction>
+            </IconsWrapper>
+            <Button
+              isDisabled={text.trim().length <= 0}
+              text={formatMessage(localization.update)}
+              onPress={() => onSubmit(text)}
+            />
           </InteractionsRow>
         )}
       </Container>
       <ModalDelete isOpen={isModalOpen} onDelete={() => onDelete(id)} onClose={() => setIsModalOpen(false)} />
-      {allowInteraction && (
-        <Button
-          isDisabled={text.trim().length <= 0}
-          text={formatMessage(localization.update)}
-          onPress={() => onSubmit(text)}
-        />
-      )}
     </>
   );
 };

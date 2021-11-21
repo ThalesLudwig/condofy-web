@@ -13,7 +13,7 @@ export const Container = styled.div`
 
   @media (max-width: ${SCREEN.SIZES.MOBILE}) {
     width: 80vw;
-    height: 80vh;
+    height: 70vh;
   }
 `;
 

@@ -42,4 +42,8 @@ export const ButtonRow = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 300px;
+
+  @media (max-width: ${SCREEN.SIZES.MOBILE}) {
+    width: 275px;
+  }
 `;

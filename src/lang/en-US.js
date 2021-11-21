@@ -18,4 +18,8 @@ export const EN_US = {
   "app.feed.noposts.second": "Try saying hi to your neighbors!",
   "post.navigation.back": "Back",
   "post.input.submit": "Update",
+  "modal.delete.cta": "Delete",
+  "modal.delete.cancel": "Cancel",
+  "modal.delete.title": "Are you sure?",
+  "modal.delete.text": "This action can not be reverted.",
 };

@@ -6,6 +6,8 @@ import { withTheme } from "styled-components";
 import { FiHeart, FiMessageSquare, FiTrash2 } from "react-icons/fi";
 import { dateParser } from "../../helpers/dateParser";
 import localization from "./localization";
+import { Button } from "../Button/Button";
+import ModalDelete from "../ModalDelete/ModalDelete";
 import {
   Container,
   Avatar,
@@ -21,7 +23,6 @@ import {
   HeaderContent,
   EditBox,
 } from "./PostEditStyled";
-import { Button } from "../Button/Button";
 
 const PostEdit = ({
   id,
@@ -41,6 +42,7 @@ const PostEdit = ({
   const hasLikedThisPost = Math.random() < 0.5; // mocked as random
   const { formatMessage } = useIntl();
   const [text, setText] = useState(children);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const expandTextarea = (e) => {
     e.target.style.height = "inherit";
@@ -78,12 +80,13 @@ const PostEdit = ({
               <FiMessageSquare color={theme.TEXT} size={20} />
               {comments.length > 0 && <Info>{comments.length}</Info>}
             </Interaction>
-            <Interaction onClick={() => onDelete(id)}>
+            <Interaction onClick={() => setIsModalOpen(true)}>
               <FiTrash2 color={theme.TEXT} size={20} />
             </Interaction>
           </InteractionsRow>
         )}
       </Container>
+      <ModalDelete isOpen={isModalOpen} onDelete={() => onDelete(id)} onClose={() => setIsModalOpen(false)} />
       {allowInteraction && (
         <Button
           isDisabled={text.trim().length <= 0}

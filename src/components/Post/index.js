@@ -7,7 +7,7 @@ import { FiHeart, FiMessageSquare, FiMoreVertical } from "react-icons/fi";
 import { dateParser } from "../../helpers/dateParser";
 import DropdownLinks from "../DropdownLinks/DropdownLinks";
 import localization from "./localization";
-import { Modal } from "../Modal/Modal";
+import ModalDelete from "../ModalDelete/ModalDelete";
 import {
   Container,
   Avatar,
@@ -46,11 +46,6 @@ const Post = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { formatMessage } = useIntl();
 
-  const onDeletePost = () => {
-    // setIsModalOpen(true);
-    onDelete(id);
-  };
-
   return (
     <Container>
       <Header>
@@ -75,7 +70,7 @@ const Post = ({
           <Dropdown>
             <MenuOption onClick={() => onUpdate(id)}>{formatMessage(localization.update)}</MenuOption>
             <Divisor />
-            <MenuOption onClick={onDeletePost}>{formatMessage(localization.remove)}</MenuOption>
+            <MenuOption onClick={() => setIsModalOpen(true)}>{formatMessage(localization.remove)}</MenuOption>
           </Dropdown>
         </DropdownLinks>
       </Header>
@@ -90,9 +85,7 @@ const Post = ({
           {comments.length > 0 && <Info>{comments.length}</Info>}
         </Interaction>
       </InteractionsRow>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        Foobar!
-      </Modal>
+      <ModalDelete isOpen={isModalOpen} onDelete={() => onDelete(id)} onClose={() => setIsModalOpen(false)} />
     </Container>
   );
 };

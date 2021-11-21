@@ -18,4 +18,8 @@ export const PT_BR = {
   "app.feed.noposts.second": "Tente dizer oi para os seus vizinhos!",
   "post.navigation.back": "Voltar",
   "post.input.submit": "Atualizar",
+  "modal.delete.cta": "Deletar",
+  "modal.delete.cancel": "Cancelar",
+  "modal.delete.title": "Tem certeza?",
+  "modal.delete.text": "Esta ação não pode ser revertida.",
 };

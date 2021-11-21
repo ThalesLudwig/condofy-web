@@ -1,5 +1,5 @@
 const SIZES = {
-  TITLE: "24px",
+  TITLE: "20px",
   TEXT: "16px",
   SMALL: "14px",
 };

@@ -1,7 +1,10 @@
 import React from "react";
 import ReactModal from "react-modal";
+import { withTheme } from "styled-components";
+import { Hoverable } from "../Hoverable/Hoverable";
+import { Content, Header, Close } from "./ModalStyled";
 
-export const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, theme, children }) => {
   const customStyles = {
     content: {
       top: "50%",
@@ -12,6 +15,7 @@ export const Modal = ({ isOpen, onClose, children }) => {
       transform: "translate(-50%, -50%)",
       border: "none",
       borderRadius: 10,
+      backgroundColor: theme.CARD,
     },
     overlay: {
       zIndex: 150,
@@ -21,7 +25,14 @@ export const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <ReactModal isOpen={isOpen} onRequestClose={onClose} style={customStyles}>
-      {children}
+      <Header>
+        <Hoverable onClick={onClose}>
+          <Close />
+        </Hoverable>
+      </Header>
+      <Content>{children}</Content>
     </ReactModal>
   );
 };
+
+export default withTheme(Modal);

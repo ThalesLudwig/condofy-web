@@ -5,6 +5,7 @@ import getNameInitials from "../../helpers/getNameInitials";
 import { withTheme } from "styled-components";
 import { useIntl } from "react-intl";
 import localization from "./localization";
+import { Button } from "../Button/Button";
 import {
   Container,
   Avatar,
@@ -17,7 +18,6 @@ import {
   Interaction,
   AvatarDefault,
 } from "./PostInputStyled";
-import { Button } from "../Button/Button";
 
 const PostInput = ({ avatarUrl, name, username, residence, theme, onInput }) => {
   const { formatMessage } = useIntl();

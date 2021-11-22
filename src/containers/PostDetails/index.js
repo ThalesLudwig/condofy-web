@@ -33,11 +33,24 @@ const PostDetails = ({ post, isLoading, hasError }) => {
 
   const onDeletePost = (postId) => {
     setAllowInteraction(false);
-    dispatch(deletePost({ postId }));
+    dispatch(
+      deletePost({
+        postId,
+        successMessage: formatMessage(localization.deletePostSuccess),
+        errorMessage: formatMessage(localization.deletePostError),
+      }),
+    );
   };
 
   const submitNewPost = (text) => {
-    dispatch(updatePost({ id, text }));
+    dispatch(
+      updatePost({
+        id,
+        text,
+        successMessage: formatMessage(localization.updatePostSuccess),
+        errorMessage: formatMessage(localization.updatePostError),
+      }),
+    );
   };
 
   return (
@@ -46,7 +59,7 @@ const PostDetails = ({ post, isLoading, hasError }) => {
         {!isLoading && (
           <BackRow onClick={() => history.push("/")}>
             <BackArrow />
-            <BackText>{formatMessage(localization.feed)}</BackText>
+            <BackText>{formatMessage(localization.back)}</BackText>
           </BackRow>
         )}
         {!!post && !isLoading && (

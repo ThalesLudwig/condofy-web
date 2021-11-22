@@ -22,4 +22,11 @@ export const PT_BR = {
   "modal.delete.cancel": "Cancelar",
   "modal.delete.title": "Tem certeza?",
   "modal.delete.text": "Esta ação não pode ser revertida.",
+  "app.feed.createPost.success": "Post criado",
+  "app.feed.createPost.error": "Um erro ocorreu ao tentar criar este post",
+  "app.feed.deletePost.success": "Post deletado",
+  "app.feed.deletePost.error": "Um erro ocorreu ao tentar deletar este post",
+  "app.feed.updatePost.success": "Post editado",
+  "app.feed.updatePost.error": "Um erro ocorreu ao tentar editar este post",
+  "app.feed.fetchPosts.error": "Um erro ocorreu ao carregar o feed",
 };

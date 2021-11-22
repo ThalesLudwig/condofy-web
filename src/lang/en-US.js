@@ -22,4 +22,11 @@ export const EN_US = {
   "modal.delete.cancel": "Cancel",
   "modal.delete.title": "Are you sure?",
   "modal.delete.text": "This action can not be reverted.",
+  "app.feed.createPost.success": "Post created",
+  "app.feed.createPost.error": "An error occurred when trying to create this post",
+  "app.feed.deletePost.success": "Post deleted",
+  "app.feed.deletePost.error": "An error occurred when trying to delete this post",
+  "app.feed.updatePost.success": "Post updated",
+  "app.feed.updatePost.error": "An error occurred when trying to update this post",
+  "app.feed.fetchPosts.error": "An error occurred when trying to fetch your feed",
 };

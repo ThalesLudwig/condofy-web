@@ -34,8 +34,15 @@ const Feed = ({ posts, isLoading, hasError }) => {
   const mockUserId = "a3a50f76-9e9b-4d1c-8598-d1be3c50651c";
 
   useEffect(() => {
-    dispatch(fetchPostsById({ userId: mockUserId, page, size: PAGE_SIZE }));
-  }, [page, dispatch]);
+    dispatch(
+      fetchPostsById({
+        userId: mockUserId,
+        page,
+        size: PAGE_SIZE,
+        errorMessage: formatMessage(localization.fetchPostsError),
+      }),
+    );
+  }, [page, dispatch, formatMessage]);
 
   const renderNoData = () => (
     <NoPosts>
@@ -46,7 +53,13 @@ const Feed = ({ posts, isLoading, hasError }) => {
   );
 
   const onDeletePost = (postId) => {
-    dispatch(deletePost({ postId }));
+    dispatch(
+      deletePost({
+        postId,
+        successMessage: formatMessage(localization.deletePostSuccess),
+        errorMessage: formatMessage(localization.deletePostError),
+      }),
+    );
   };
 
   const onUpdatePost = (postId) => {
@@ -76,7 +89,14 @@ const Feed = ({ posts, isLoading, hasError }) => {
   };
 
   const onCreatePost = (post) => {
-    dispatch(createPost({ userId: mockUserId, post }));
+    dispatch(
+      createPost({
+        userId: mockUserId,
+        post,
+        successMessage: formatMessage(localization.createPostSuccess),
+        errorMessage: formatMessage(localization.createPostError),
+      }),
+    );
   };
 
   useEffect(() => {

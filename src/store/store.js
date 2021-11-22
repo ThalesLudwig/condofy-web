@@ -4,7 +4,7 @@ import storage from "redux-persist/lib/storage";
 import themeReducer from "./themeSlice";
 import localizationSlice from "./localizationSlice";
 import postSlice from "./postSlice";
-import errorMiddleware from "./errorMiddleware";
+import responseMiddleware from "./responseMiddleware";
 
 const rootReducer = combineReducers({
   theme: persistReducer({ key: "theme", storage }, themeReducer),
@@ -17,7 +17,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat(errorMiddleware),
+    }).concat(responseMiddleware),
 });
 
 export const persistor = persistStore(store);

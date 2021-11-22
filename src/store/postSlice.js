@@ -39,9 +39,9 @@ export const fetchPost = createAsyncThunk(ACTION_FETCH_POST, async (postId) => {
   return post.data;
 });
 
-export const updatePost = createAsyncThunk(ACTION_UPDATE_POSTS, async (post) => {
+export const updatePost = createAsyncThunk(ACTION_UPDATE_POSTS, async ({ id, text }) => {
   const feedService = new FeedService();
-  const response = await feedService.updatePost(post);
+  const response = await feedService.updatePost({ id, text });
   return response.data;
 });
 

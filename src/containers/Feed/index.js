@@ -117,7 +117,12 @@ const Feed = ({ posts, isLoading, hasError }) => {
             avatarUrl={avatarMock}
           />
           {renderPosts()}
-          {isLoading && <PostSkeleton />}
+          {isLoading && (
+            <>
+              <PostSkeleton />
+              <PostSkeleton />
+            </>
+          )}
           <InfiniteLoadingTrigger ref={infiniteLoadingRef} />
         </Posts>
       </PostsLane>
